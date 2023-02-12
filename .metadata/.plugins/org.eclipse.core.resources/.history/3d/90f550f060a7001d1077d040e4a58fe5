@@ -1,0 +1,18 @@
+package com.sist.manager;
+
+import org.springframework.stereotype.Component;
+import java.util.*;
+import java.io.*;
+import java.net.*;
+
+@Component
+public class MovieManager {
+	public String movieSite(int no) {
+		String url="";
+		String json="";
+		try {
+			
+		} catch (Exception e) {}
+		return json;
+	}
+}
