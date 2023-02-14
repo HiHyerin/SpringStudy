@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 관리 대상의 클래스 등록 -->
+	<!-- 
+		기본 : 싱글턴(하나의 객체)
+		여러개 메모리 사용 => scope="prototype" => Object객체 clone(복제)
+	 -->
+	<bean id="a" class="com.sist.myapp.AModel" scope="prototype"/>
+	<bean id="b" class="com.sist.myapp.BModel"/>
+	<bean id="c" class="com.sist.myapp.CModel"/>
+
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 태그나 속성 정의할 떄 사용 -->
+<!-- 태그 정의 -->
+<!--
+	<sawon>
+		<list> => 존재할 때도 있고 없을 때도 있다(list*)
+-->
+<!ELEMENT sawon (list+)>
+<!ELEMENT list (sabun?, name*, dept+, job,(phone|office)*)>
+<!ELEMENT sabun (#PCDATA)> <!-- PCDATA = 태그사이에 값 <saubn>1</sabun> -->
+<!ELEMENT name (#PCDATA)> <!-- PCDATA = 태그사이에 값 <saubn>1</sabun> -->
+<!ELEMENT dept (#PCDATA)> <!-- PCDATA = 태그사이에 값 <saubn>1</sabun> -->
+<!ELEMENT job (#PCDATA)> <!-- PCDATA = 태그사이에 값 <saubn>1</sabun> -->
+<!ELEMENT phone (#PCDATA)> <!-- PCDATA = 태그사이에 값 <saubn>1</sabun> -->
+<!ELEMENT office (#PCDATA)> <!-- PCDATA = 태그사이에 값 <saubn>1</sabun> -->
+

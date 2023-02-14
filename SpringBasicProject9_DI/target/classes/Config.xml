@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ <!-- Connection -->
+ <!-- 
+ properties?, settings?, typeAliases?, typeHandlers?, objectFactory?, objectWrapperFactory?, 
+ reflectorFactory?, plugins?, environments?, databaseIdProvider?, mappers?
+ 
+ mappers? : 선택사항
+ mapper* : 0번 이상 사용
+ mapper+ : 한 번 이상 사용
+ mapper| : 선택
+ mapper ====== 암것도 안붙으면 default -> 반드시 한번은 사용해야함
+  -->
+
+ 
+ <configuration>
+  <typeAliases><!-- vo 등록 -->
+    <typeAlias type="com.sist.dao.FoodVO" alias="FoodVO"/>
+  </typeAliases>
+  <mappers><!--sql문장이 어디있는지 -->
+   <mapper resource="com/sist/dao/food-mapper.xml"/>
+  </mappers>
+</configuration>

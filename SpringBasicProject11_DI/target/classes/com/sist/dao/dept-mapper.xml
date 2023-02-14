@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.dao.dept-mapper">
+
+	<select id="deptListData" resultType="DeptVO">
+		select deptno, dname, loc
+		from dept
+	
+	</select>
+	
+	<select id="deptDetailData" resultType="DeptVO" parameterType="int">
+		select deptno, dname, loc
+		from dept
+		where deptno = #{deptno}
+	</select>
+
+</mapper>

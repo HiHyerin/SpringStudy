@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 클래스 등록 -->
+	<bean id="sa1" class="com.sist.di1.Sawon">
+	<!-- 
+		DI 종류
+		1. setter에 값 주입
+		2. 생성자에 값 주입
+		3. 메소드 호출(생성시, 소멸시)
+		========================
+		컨테이너
+		BeanFactory : core(DI)
+		ApplicationContext : core(DI, AOP)
+		
+	 -->
+		<!-- 멤버변수의 값을 주입 : DI : setter DI -->
+		<property name="sabun" value="1"/>
+		<!--  sa1.setSabun(1) -->
+		<property name= "name">
+			<value>홍길동</value>
+		</property>
+		<property name="dept" value="개발부"/>
+		<property name="job" value="대리"/>
+		<property name="pay" value="3000"/>
+		
+	</bean>
+
+</beans>

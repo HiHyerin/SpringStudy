@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 메모리 할당 할 것
+		EmpDAO = MainClass
+	 -->
+	<bean id="dao" class="com.sist.dao.EmpDAO"
+	  c:driver="oracle.jdbc.driver.OracleDriver"
+	  p:url="jdbc:oracle:this:@localhost:1521:XE"
+	  p:user="hr"
+	  p:password="happy"
+	/>
+	
+	<bean id="mc" class="com.sist.myapp.MainClass"
+	  p:dao-ref="dao"
+	/>
+	
+	<!-- -ref="bean 태그의 id명" 
+		=> 객체라는 의미?
+	 -->
+</beans>

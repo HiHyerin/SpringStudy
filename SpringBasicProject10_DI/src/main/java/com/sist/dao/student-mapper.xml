@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.dao.student-mapper">
+<!-- 
+	(cache-ref | cache | resultMap* | parameterMap* | sql* | insert* | update* | delete* | select*)+ => 하나는 무조건 사용해야함
+	
+ -->
+ <!-- CURD -->
+ <!-- 데이터 추가 
+ 		resultType, parameterType, id
+ 		=> ? 대신 사용
+ 		#{}='', ${}=> column명/table명 #이있음 ''들어감, $은 ''안들어감
+ -->
+ 
+ <!-- 
+ 	public void studentInsert(StudentVO vo)
+ 		  =====				===============
+ 		  resultType		parameterType
+ 		  (void인 경우 생략)
+  -->
+  
+  <!-- 중복코딩 -->
+  <sql id="select-data">
+   SELECT hakbun, name, kor, eng, math, (kor+eng+math) as total, ROUND((kor+eng+math)/3.0,2) as avg
+   FROM student
+  </sql>
+  
+  
+ <insert id="studentInsert" parameterType="StudentVO">
+ 	
+ 	<selectKey keyProperty="hakbun" resultType="int" order="BEFORE"> <!-- 시퀀스 --> 
+ 		SELECT NVL(MAX(hakbun)+1,1) as hakbun FROM student 
+ 	</selectKey>
+ 	INSERT INTO student VALUES(#{hakbun},#{name},#{kor},#{eng},#{math}) <!-- #{keyProperty} -->
+ 	<!-- 
+ 		#{name}  =  vo.getName()
+ 		#{eng} = vo.getEng()
+ 		${id} = request.getAttribute("id")
+ 	 -->
+ </insert>
+ 	
+ <!-- 데이터 목록 -->
+ <select id="studentListData" resultType="StudentVO">
+  	<include refid="select-data" />
+ </select>
+ 
+ <!-- 데이터 검색 -->
+ <select id="studentDetailData" resultType="StudentVO" parameterType="int">
+ SELECT hakbun, name, kor, eng, math, (kor+eng+math) as total, ROUND((kor+eng+math)/3.0,2) as avg
+ FROM student
+ WHERE hakbun=#{hakbun} <!-- #이 있으면 parameterType이 있음 -->
+ </select>
+ 
+ <!-- 데이터 수정 -->
+ <update id="studentUpdate" parameterType="StudentVO">
+ 	UPDATE student SET
+ 	kor=#{kor}, eng=#{eng}, math=#{math}
+ 	where hakbun=#{hakbun}
+ </update>
+ 
+ 
+ <!-- 데이터 삭제 -->
+ <delete id="studentDelete" parameterType="int">
+ 	DELETE FROM student
+ 	WHERE hakbun = #{hakbun}
+ </delete>
+ 
+</mapper>
+
+
+
+
+
+

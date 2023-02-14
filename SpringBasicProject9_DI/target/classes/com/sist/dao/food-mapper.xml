@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.dao.food-mapper1">
+
+<!-- PreparedStatement(SQL), ResultSet(resultType) -->
+
+<select id="foodListData" resultType="FoodVO">
+	select fno, name, address, rownum
+	from food_location
+	where rownum &lt;= 50
+</select>
+
+  <select id="foodDetailData" resultType="FoodVO" parameterType="int"> <!-- ?에 대한 값이 정수다(int) -->
+	SELECT fno,name,address,tel,type,parking,time,menu
+    FROM food_location
+    WHERE fno=#{fno}
+	<!--       ===== : ?값 -->
+</select>
+
+
+</mapper>
+
+<!-- 
+	id는 구분자
+	resultType : SQL실행후에 값을 저장하는 변수(변수명으로 받는게 아니고 변수type로 받아?)
+	parameterType : ?에 값을 설정
+	
+	select address from food_location
+	resultType = "String"
+	
+	select count(*) from food_location
+	frsultType = "int"
+	
+	select fno, name, address fromfood_location
+	where fno=?
+	parameterType ="int"
+	
+	select fno, name, address from food_location
+	where name=? and address=?
+	parameterType="FoodVO"
+	
+	select fno, name, address from food_location
+	where num between ? and ?
+	parameterType="hashmap" // 변수에 없는 건 해시맵
+	
+	resultType="FoodVO"
+	FoodVO (1개) => selectOne()
+	FoodVO (여러개) => selectList()
+ -->

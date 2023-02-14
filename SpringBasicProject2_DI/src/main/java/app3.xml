@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 
+		<bean id="m1" class="com.sist.di3.Member"> : 생성자 default(매개변수가 없는 생성자)
+		public Member(){}
+	 -->
+	 <!-- public Member(int mno, String name, String address, String tel) { -->
+	<bean id="m1" class="com.sist.di3.Member">
+		<constructor-arg value="1" index="0"/>
+		<constructor-arg value="박문수" index="1"/>
+		<constructor-arg value="서울" index="2"/>
+		<constructor-arg value="1111-1111" index="3"/>
+		
+	</bean>
+	
+	<bean id="m2" class="com.sist.di3.Member"
+		c:mno="2"
+		c:name="김두한"
+		c:address="경기"
+		c:tel="2222-2222"
+	/>
+	
+	<bean id="m3" class="com.sist.di3.Member"
+		c:_0="3"
+		c:_1="강감찬"
+		c:_2="경기"
+		c:_3="2222-2222"
+	/>
+		
+	
+
+</beans>

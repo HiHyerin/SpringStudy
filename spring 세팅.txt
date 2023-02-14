@@ -1,0 +1,191 @@
+1. spring.io => project => spring tools => 내려서 Spring Tool Suite 3 wiki 누르기 => 3.9.12 맨위 ~_64.zip
+
+2. jdk.java.net/14 => openJDK => 14.0.2 
+
+3. c드라이브에 SpringDev 폴더 생성 => dev안에 톰캣,디벨로퍼 갖다놓기,SpringStudy폴더,
+
+4. springtool 안에 sts-bundle -> springdev에 갖다놓기
+
+5. sts-bundle -> release -> 나뭇잎:실행파일
+
+6. 실행하고 브라우저 설정 springdev->springstudy
+
+7. file => new => spring legacy project => SpringFirstProject => templates에서 spring mvc project 
+=> 오류남:jdk 안맞음 => cancle
+
+8. jdk 안에 jdk-14.0.2폴더 c드라이브에 갖다놓기
+
+9. jdk 안에 bin 폴더 경로 복사 => 내pc 오른쪽키 속성 => 고급시스템설정 => 환경변수 
+=> 시스템변수에 path에 경로 붙여넣고 맨 위로 올림, classpath에도 붙여넣기 근데 bin지우고 lib (프로젝트 할 떄는 17을 맨 위로) 
+=> cmd에서 java -version / javac / java 확인 => 다시 sts 켰을때 servers 떠있으면 됨
+
+10. 다시 SpringFirstProject 열어서 mvc 선택 하고 next => com.sist.web
+
+11. firstproject 오른쪽 클릭 properties => project facets => java 1.8로 설정
+
+12. 카페에서 spring 다운 후 pom.xml 편집 => properties부터 맨 마지막줄까지 복붙해서 sts에 
+pom.xml properties부터 다 지우고 붙여넣기 => 에러 사라지면 정상
+
+13.브라우저 크롬으로 변경 후 firstproject run on server => apache 선택 9.0 
+=> 브라우저에서 springdev 안에 톰캣
+
+14. 프리퍼런스=>서버=> 런타임~ => 톰캣말고 다른거 리무브
+
+15. 다시 실행 하고 hello world 뜨면 오케이 안되면 서버.xml 63번째 줄 8080 => 80으로 바꾸고 확인
+
+16. src => web-inf 안에 classes 뺴고 다 지우기
+
+17. web.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+   <!-- Controller 등록 -->
+   <servlet>
+  <servlet-name>dispatcher</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  <init-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/config/application-*.xml</param-value>
+  </init-param>
+</servlet>
+<!-- Controller를 찾는 경우에 사용되는 URL 주소 -->
+<servlet-mapping>
+  <servlet-name>dispatcher</servlet-name>
+  <url-pattern>*.do</url-pattern>
+</servlet-mapping>
+
+<!-- 한글 변환  -->
+<filter>
+  <filter-name>encodingFilter</filter-name>
+  <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  <init-param>
+    <param-name>encoding</param-name>
+    <param-value>UTF-8</param-value>
+  </init-param>
+</filter>
+<!-- 모든 URL 경로에 대한 처리 -->
+<filter-mapping>
+  <filter-name>encodingFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+</filter-mapping>      
+
+
+</web-app>
+
+18. web-inf에 config 폴더 생성 => spring bean~~ 눌러서 application-context.xml 
+=> next => aop beans context p 선택 => finish
+
+19. application-context.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+   <context:component-scan base-package="com.sist.*"/>
+   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+      p:prefix="/"
+      p:suffix=".jsp"
+   />
+   <!-- 
+      return "../main/main.jsp"; ==> return "main/main";
+    -->
+</beans>
+
+20. src/main/java에 패키지 안에 클래스 삭제하고 MainController 클래스 생성
+MainController.java
+
+package com.sist.web;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class MainController {
+   @RequestMapping("main/main.do")
+   public String main_main(HttpServletRequest request,HttpServletResponse response)
+   {
+      request.setAttribute("msg", "Hello Spring!!");
+      return "main/main";
+   }
+}
+
+21. webapp에 main 폴더 => main.jsp 
+main.jsp
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+   <center>
+     <h1>${msg }</h1>
+   </center>
+</body>
+</html>
+
+22. 뉴 legacy~ => SpringDBTestProject => mvc 선택
+
+23. properties java 1.8변경
+
+24. firstproject의 pom.xml properties~부터 복사해서 dbtest pom.xml에 붙여넣기
+
+25. xml안에 jsoup 삭제 그 자리에 붙여넣기
+
+<dependency>
+    <groupId>org.jsoup</groupId>
+    <artifactId>jsoup</artifactId>
+    <version>1.15.3</version>
+</dependency>
+
+26. web-inf에 classes빼고 다 지우고 config 폴더 생성
+
+27. web.xml 세팅
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+<servlet>
+  <servlet-name>dispatcher</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  <init-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/config/application-*.xml</param-value>
+  </init-param>
+</servlet>
+<!-- Controller를 찾는 경우에 사용되는 URL 주소 -->
+<servlet-mapping>
+  <servlet-name>dispatcher</servlet-name>
+  <url-pattern>*.do</url-pattern>
+</servlet-mapping>
+
+<!-- 한글 변환  -->
+<filter>
+  <filter-name>encodingFilter</filter-name>
+  <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  <init-param>
+    <param-name>encoding</param-name>
+    <param-value>UTF-8</param-value>
+  </init-param>
+</filter>
+<!-- 모든 URL 경로에 대한 처리 -->
+<filter-mapping>
+  <filter-name>encodingFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+</filter-mapping>      
+
+</web-app>

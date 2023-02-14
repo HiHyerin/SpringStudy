@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!--  위에 있는 것들
+		클래스와 클래스의 관계도를 만든다(메뉴얼) = 스프링에서 동작이 가능하게 설정 => 메타정보(xml, properties)
+		스프링에서만 사용하는 태그를 제공(스키마), MyBatis(XML => DTD)
+		제공하지 않는 태그나 속성을 사용하면 오류, 대소문자 구분, 속성값 주입할 때 ""
+		여는 태그와 닫는 태그가 동일
+		태그 순서 있다
+	 -->
+	<bean id="ds" class="com.sist.commons.DataSource"
+	  p:driver="oracle.jdbc.driver.OracleDriver"
+	  p:url="jdbc:oracle:thin:@localhost:1521:XE"
+	  p:user="hr"
+	  p:password="happy"
+	/>
+	<!-- public EmpDAO() 
+		= <bean id="eDao" class="com.sist.dao.EmpDAO"/> => 매개변수 없는것
+		c:ds-ref="ds" => ref: 객체
+	-->
+	<bean id="eDao" class="com.sist.dao.EmpDAO"
+	  c:ds-ref="ds" />
+	
+	<bean id="dDao" class="com.sist.dao.DeptDAO"
+		c:ds-ref="ds" />
+	<!-- 순서가 없다 
+		1. 모든 bean태그에 등록된 클래스 메모리 할당 완료
+		2. 메모리 할당된 클래스의 setter를 이용해서 값 주입
+	-->
+</beans>
