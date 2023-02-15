@@ -19,7 +19,7 @@
 		    <id>mesir-repo</id>
 		    <url>http://mesir.googlecode.com/svn/trunk/mavenrepo</url>
 		</repository>
-	</repositories>
+	</repositories> 
 	<dependencies>
 	    <!-- ojdbc(Maven에서 사용이 안된다)-->
 	    <!-- 시스템 경로 줄때 사용  -->
