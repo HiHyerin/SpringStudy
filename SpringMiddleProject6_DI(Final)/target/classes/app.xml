@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	
+	<!-- 사용자 정의 설정 -->
+	<context:component-scan base-package="com.sist.*"/> 
+	<!-- @Component, @Repository, @Service, @Controller, @RestController, @ControllerAdvice, 
+ and @Configuration  
+ 	com.sist.*에 이런거 있으면 메모리 할당 하겠다는 의미 -->
+	
+	<util:properties id="db" location="classpath:db.properties"/>
+	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource" 
+		p:driverClassName="#{db['driver']}"
+		p:url="#{db['url']}"
+		p:username="#{db['username']}"
+		p:password="#{db['password']}"
+		p:maxActive="#{db['maxActive']}"
+		p:maxIdle="#{db['maxIdle']}"
+		p:maxWait="#{db['maxWait']}"
+	/>
+	
+	<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean"
+		p:dataSource-ref="ds"
+	/>
+	
+	<mybatis-spring:scan base-package="com.sist.mapper" factory-ref="ssf"/>
+</beans>

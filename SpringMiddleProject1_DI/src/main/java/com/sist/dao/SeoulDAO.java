@@ -10,11 +10,11 @@ public class SeoulDAO {
 	}
 	
 	
-	public List<SeoulLocationVO> seoulListData(){
-		return mapper.seoulListData();
+	public List<SeoulLocationVO> seoulListData(Map map){
+		return mapper.seoulListData(map);
 	}
-	public SeoulLocationVO seoulDetailData(int no) {
-		return mapper.seoulDetailData(no);
+	public SeoulLocationVO seoulDetailData(Map map) {
+		return mapper.seoulDetailData(map);
 	}
 	
 }

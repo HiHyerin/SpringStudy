@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sist</groupId>
 	<artifactId>myapp</artifactId>
-	<name>SpringBasicProject2_DI</name>
+	<name>SpringBasicProject2_DI</name> 
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
