@@ -5203,3 +5203,30 @@ java.lang.NullPointerException
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-15 20:53:28.435
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-15 20:55:42.302
+!MESSAGE The POM for com.sun.xml.bind:jaxb-core:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-15 20:55:42.306
+!MESSAGE The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-15 20:55:44.799
+!MESSAGE The POM for com.sun.xml.bind:jaxb-core:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-15 20:55:44.802
+!MESSAGE The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-15 20:55:44.982
+!MESSAGE The POM for com.sun.xml.bind:jaxb-core:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-15 20:55:44.986
+!MESSAGE The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-15 20:55:45.186
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-15 20:55:45.189
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-15 20:55:45.194
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!

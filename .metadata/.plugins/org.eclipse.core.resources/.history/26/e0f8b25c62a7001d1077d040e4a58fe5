@@ -1,5 +1,0 @@
-package com.sist.web;
-@RestController
-public class MovieRestController {
-
-}

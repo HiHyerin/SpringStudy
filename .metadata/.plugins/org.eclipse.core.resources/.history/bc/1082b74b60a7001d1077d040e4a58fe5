@@ -1,8 +1,0 @@
-package com.sist.manager;
-
-import org.springframework.stereotype.Repository;
-
-@Repository
-public class MovieManager {
-
-}

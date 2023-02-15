@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="XMLProject"/>
+<aop-project name="SpringMiddleProject6_DI(Final)"/>
+<aop-project name="SpringMiddleProject3_DI(spring_annotation)"/>
 <aop-project name="SpringBasicProject1"/>
 <aop-project name="SpringBasicProject10_DI"/>
 <aop-project name="SpringBasicProject11_DI"/>
 <aop-project name="SpringDBTestProject"/>
+<aop-project name="SpringMiddleProject2_DI(mybatis_annotation)"/>
 <aop-project name="SpringRestProject"/>
+<aop-project name="GoodsSpringProject"/>
 <aop-project name="SpringMiddleProject1_DI"/>
 <aop-project name="SpringFirstProject"/>
 <aop-project name="SpringBasicProject6_DI"/>
@@ -15,5 +19,7 @@
 <aop-project name="SpringBasicProject5_DI"/>
 <aop-project name="SpringBasicProject4_DI"/>
 <aop-project name="SpringBasicProject2_DI"/>
+<aop-project name="SpringMiddleProject5_DI(java)"/>
 <aop-project name="SpringBasicProject3_DI"/>
+<aop-project name="SpringMiddleProject4_DI(Annotation+XML)"/>
 </aop-reference-model>

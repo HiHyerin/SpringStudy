@@ -7172,3 +7172,20 @@ java.lang.NullPointerException: null
 2023-02-15 20:53:28,429 [Worker-246: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2023-02-15 20:53:28,430 [Worker-246: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2023-02-15 20:53:28,431 [Worker-246: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-02-15 20:53:28,431 [Worker-246: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of XMLProject
+2023-02-15 20:53:28,432 [Worker-246: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for XMLProject
+2023-02-15 20:53:28,434 [Worker-246: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-02-15 20:55:42,301 [Worker-251: reload maven project] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.sun.xml.bind:jaxb-core:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2023-02-15 20:55:42,305 [Worker-251: reload maven project] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2023-02-15 20:55:44,622 [Worker-240: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.sist:web:1.0.0-BUILD-SNAPSHOT @ C:\springDev\springStudy\SpringRestProject\pom.xml.
+2023-02-15 20:55:44,799 [Worker-240: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.sun.xml.bind:jaxb-core:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2023-02-15 20:55:44,801 [Worker-240: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2023-02-15 20:55:44,982 [Worker-240: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.sun.xml.bind:jaxb-core:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2023-02-15 20:55:44,985 [Worker-240: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.11 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2023-02-15 20:55:45,185 [Worker-240: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-02-15 20:55:45,186 [Worker-240: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-02-15 20:55:45,189 [Worker-240: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-02-15 20:55:45,190 [Worker-240: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-02-15 20:55:45,190 [Worker-240: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of SpringRestProject
+2023-02-15 20:55:45,190 [Worker-240: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for SpringRestProject
+2023-02-15 20:55:45,193 [Worker-240: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!

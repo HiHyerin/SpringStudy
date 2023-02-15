@@ -1,3 +1,4 @@
+//com.springsource.config.ui.prefs.activePageIndex\:/GoodsSpringProject/src/main/java/app.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/SpringBasicProject1/src/main/java/app.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/SpringBasicProject10_DI/src/main/java/application-context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/SpringBasicProject10_DI/src/main/java/application-datasource.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
@@ -21,5 +22,12 @@
 //com.springsource.config.ui.prefs.activePageIndex\:/SpringFirstProject/src/main/webapp/WEB-INF/config/application-context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/SpringFirstProject/src/main/webapp/WEB-INF/config/application-cpmtext.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/SpringFirstProject/src/main/webapp/WEB-INF/config/application-cpmtext1.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringMiddleProject1_DI/src/main/java/app.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringMiddleProject2_DI(annotation)/src/main/java/app.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringMiddleProject2_DI(mybatis_annotation)/src/main/java/app.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringMiddleProject3_DI(spring_annotation)/src/main/java/app.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringMiddleProject4_DI(Annotation+XML)/src/main/java/application-context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringMiddleProject4_DI(Annotation+XML)/src/main/java/application-datasource.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringMiddleProject6_DI(Final)/src/main/java/app.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/SpringRestProject/src/main/webapp/WEB-INF/config/application-context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 eclipse.preferences.version=1
