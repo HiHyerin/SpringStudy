@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.SeoulMapper"> <!-- 메소드 구현 -->
+	<sql id="select-seoul">
+		select no, title, address, msg
+		from seoul_location
+	</sql>	<!-- 반복되는 sql문장일 때 위에 적고 밑에 include사용
+			join, subquery 사용시 유용
+		 -->
+	
+	
+	<select id="seoulListData" resultType="SeoulVO">
+		<include refid="select-seoul"></include>
+	</select>
+	
+	<select id="seoulDetailData" resultType="SeoulVO" parameterType="int">
+	    <include refid="select-seoul"></include>
+		where no=#{no}
+	</select>
+</mapper>

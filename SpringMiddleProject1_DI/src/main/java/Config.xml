@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ <!-- 
+ 	com.sist.dao
+ 	com.sist.manager
+ 	com.sist.model
+ 	com.sist.service...
+ 
+ 	com.sist.*
+  -->
+ <configuration>
+ 	<!-- properties?, settings?, typeAliases?, typeHandlers?, objectFactory?, objectWrapperFactory?, 
+ reflectorFactory?, plugins?, environments?, databaseIdProvider?, mappers? -->
+ 	<!-- vo등록 -->
+ 	<typeAliases>
+ 		<typeAlias type="com.sist.dao.SeoulLocationVO" alias="SeoulVO"/>
+ 	</typeAliases>
+ 	
+ 	
+ 	<!-- Mapper등록 -->
+ 	<mappers>
+ 		<mapper resource="com/sist/mapper/seoul-mapper.xml"/> <!-- mapper는 하나씩만 등록가능, package는 한번에 여러개 가능 -->
+ 	</mappers>
+ 	
+ </configuration>

@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="SpringFirstProject"/>
+<aop-project name="XMLProject"/>
+<aop-project name="SpringBasicProject1"/>
+<aop-project name="SpringBasicProject10_DI"/>
+<aop-project name="SpringBasicProject11_DI"/>
 <aop-project name="SpringDBTestProject"/>
 <aop-project name="SpringRestProject"/>
+<aop-project name="SpringMiddleProject1_DI"/>
+<aop-project name="SpringFirstProject"/>
 <aop-project name="SpringBasicProject6_DI"/>
-<aop-project name="SpringBasicProject2_DI"/>
-<aop-project name="SpringBasicProject1"/>
 <aop-project name="SpringBasicProject9_DI"/>
-<aop-project name="SpringBasicProject5_DI"/>
 <aop-project name="SpringBasicProject8_DI"/>
-<aop-project name="SpringBasicProject4_DI"/>
 <aop-project name="SpringBasicProject7_DI"/>
+<aop-project name="SpringBasicProject5_DI"/>
+<aop-project name="SpringBasicProject4_DI"/>
+<aop-project name="SpringBasicProject2_DI"/>
 <aop-project name="SpringBasicProject3_DI"/>
 </aop-reference-model>
