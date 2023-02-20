@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="sa1" class="com.sist.sawon.Sawon"
+		p:sabun = "1"
+		p:name= "홍길동"
+		p:dept = "개발부"
+		p:loc = "서울"
+		p:job = "대리"
+	/>
+	<bean id="sa2" class="com.sist.sawon.Sawon"
+		p:sabun = "2"
+		p:name= "심청이"
+		p:dept = "기획부"
+		p:loc = "서울"
+		p:job = "과장"
+	/>
+	<bean id="sa3" class="com.sist.sawon.Sawon"
+		p:sabun = "3"
+		p:name= "박문수"
+		p:dept = "영업부"
+		p:loc = "경기"
+		p:job = "사원"
+	/>
+	
+	
+	<!--  list.add(sa1) -->
+	<bean id = "ss" class="com.sist.sawon.SawonSystem">
+		<property name="list">
+			<list>
+				<ref bean = "sa1"/> 
+				<ref bean = "sa2"/> 
+				<ref bean = "sa3"/> 
+			</list>
+		</property>
+	</bean>
+
+</beans>

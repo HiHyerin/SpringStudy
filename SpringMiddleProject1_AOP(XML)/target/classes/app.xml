@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id="mc" class="com.sist.myapp.MainClass2"
+		p:dao-ref="dao"
+	/> <!-- setter di -->
+	
+	<bean id="dao" class="com.sist.dao.MovieDAO2"/>
+	<bean id="aspect" class="com.sist.aop.MyAspect"/>
+	<!-- 
+		공통으로 사용되는 메소드를 모아둠 -> 이제 언제 호출 할건지 정해야함
+		
+	 -->
+	 
+	 <aop:config>
+	 	<aop:aspect ref="aspect">
+	 		<aop:before method="getConnection" pointcut="execution(* com.sist.dao.MovieDAO2.*(..))"/>
+	 		<aop:after method="disConnection" pointcut="execution(* com.sist.dao.MovieDAO2.*(..))"/>
+	 	</aop:aspect> <!-- method : join Point, pointcut : 출력할 위치? -->
+	 	
+	 </aop:config>
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.emp-mapper">
+	<!-- 
+	while(rs.next()){
+		FoodVO vo = new FoodVO();
+		vo.setXxx...
+	}
+	 
+	 위 FoodVO vo~~처럼 resultType도 어떤 vo를 채울 것인지 정하는 것
+	 parameterType은 ?에 값 채워주는 역할
+	 -->
+	 
+	 <!-- db : join, subquery, procedure, function, trigger -->
+	
+	<select id="empListData" resultType="EmpVO">
+		SELECT empno, ename, job, hiredate as regdate, sal, deptno,
+			(select dname from dept where deptno = emp.deptno) as dname,
+			(select loc from dept where deptno = emp.deptno) as loc,
+			RANK() over(order by sal desc) as rank
+		FROM emp
+	</select>
+	<!-- 스칼라 서브쿼리, 변수명 출력명 일치시켜야함(as) -->
+
+</mapper>

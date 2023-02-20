@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<!-- 데이터 베이스 연결 -->
+	<util:properties id="db" location="classpath:db.properties"/>
+	<!-- ㄴ> @PropertySource @Value -->
+	<!-- 1. 데이터베이스 정보 설정 -->
+	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource"
+		p:driverClassName="#{db['driver']}"
+		p:url="#{db['url']}"
+		p:username="#{db['username']}"
+		p:password="#{db['password']}"
+	/>
+	<!--  ㄴ> @Bean -->
+	
+	<!-- 2. MyBatis 전송 SqlSessionFactoryBean-->
+	<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean"
+		p:configLocation="classpath:Config.xml"
+		p:dataSource-ref="ds"
+	/>
+	
+	<!-- DAO에 연결된 객체 설정  => 메인클래스가 받아야함-->
+	<bean id="fdao" class="com.sist.dao.FoodDAO"
+		p:sqlSessionFactory-ref="ssf"
+	/>
+	
+	<bean id="gdao" class="com.sist.dao.GoodsDAO"
+		p:sqlSessionFactory-ref="ssf"
+	/>
+	
+	<bean id="rdao" class="com.sist.dao.RecipeDAO"
+		p:sqlSessionFactory-ref="ssf"
+	/>
+	
+	<!-- MainClass에 있는 setter 채워줌-->
+	
+	
+	<bean id="model" class="com.sist.model.Model"
+		p:fdao-ref="fdao"
+		p:gdao-ref="gdao"
+		p:rdao-ref="rdao"
+	/>
+	
+	<bean id="mc" class="com.sist.myapp.MainClass"
+		p:model-ref="model"
+		
+	/>
+
+</beans>

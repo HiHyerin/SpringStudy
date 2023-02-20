@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+   <bean id="dao" class="com.sist.model.EmpDAO"/>
+   <bean id="aspect" class="com.sist.aop.ModelAspect"
+      p:dao-ref="dao"
+   />
+   <bean id="mc" class="com.sist.myapp.MainClass"
+   	p:dao-ref="dao"
+   />
+   <!-- pointcut="execution(* com.sist.model.EmpDAO.emp*(..))"  ==> emp.* 은 emp로 시작되는 메소드명-->
+   <aop:config>
+      <aop:aspect ref="aspect"> <!-- DAO마다 공통으로 사용되는 메소드 -->
+        <aop:before method="before" pointcut="execution(* com.sist.model.EmpDAO.emp*(..))"/>
+        <aop:after method="after" pointcut="execution(* com.sist.model.EmpDAO.emp*(..))"/>
+        <aop:after-returning method="afterReturning" pointcut="execution(* com.sist.model.EmpDAO.emp*(..))" returning="obj"/>
+        <aop:after-throwing method="afterThrowing" pointcut="execution(* com.sist.model.EmpDAO.emp*(..))" throwing="ex"/>
+        <aop:around method="around" pointcut="execution(* com.sist.model.EmpDAO.emp*(..))"/>
+      </aop:aspect>
+   </aop:config>
+   <!-- 
+         public void afterReturning(Object obj) throws Throwable
+   {
+      // 결과값을 받아서 출력 => web에서 return값을 먼저 처리 => 자동 로그인, ID저장..
+   }
+   public void afterThrowing(Throwable ex) throws Throwable
+   {
+      // catch 수행
+      System.out.println(ex.getMessage()); // web=> alert
+   } 
+   
+   ///// 매개변수 명과  이름이 동일해야 한다 (returning , throwing)
+    -->
+   
+
+</beans>

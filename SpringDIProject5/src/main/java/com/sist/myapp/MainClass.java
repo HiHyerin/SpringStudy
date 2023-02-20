@@ -51,23 +51,37 @@ public class MainClass {
 							 // 지역변수는 제어 할 수 없다
 	public static void main(String[] args) {
 		ApplicationContext app = new ClassPathXmlApplicationContext("app.xml");
-		MainClass mc = (MainClass)app.getBean("mainClass");
-		while(true) {
+//		MainClass mc = (MainClass)app.getBean("mainClass");
+//		while(true) {
+//		Scanner scan = new Scanner(System.in);
+//		System.out.println("==========메뉴==========");
+//		System.out.println("1. 일일박스오피스");
+//		System.out.println("2. 실시간 예매율");
+//		System.out.println("3. 좌석점유율");
+//		System.out.println("4. 온라인상영관 일일");
+//		System.out.println("5. 종료");
+//		System.out.println("======================");
+//		System.out.print("메뉴선택: ");
+//		int no = scan.nextInt();
+//		if(no==5) break;
+//		List<MovieVO> list = mc.mm.movieListData(no);
+//		for(MovieVO vo:list) {
+//			System.out.println(vo.getRank()+" "+vo.getTitle()+" "+vo.getGenre()+" "+vo.getDirector());
+//		}
+//		}
+		
+		// naver news
+		NewsManager n = (NewsManager)app.getBean("newsManager");
 		Scanner scan = new Scanner(System.in);
-		System.out.println("==========메뉴==========");
-		System.out.println("1. 일일박스오피스");
-		System.out.println("2. 실시간 예매율");
-		System.out.println("3. 좌석점유율");
-		System.out.println("4. 온라인상영관 일일");
-		System.out.println("5. 종료");
-		System.out.println("======================");
-		System.out.print("메뉴선택: ");
-		int no = scan.nextInt();
-		if(no==5) break;
-		List<MovieVO> list = mc.mm.movieListData(no);
-		for(MovieVO vo:list) {
-			System.out.println(vo.getRank()+" "+vo.getTitle()+" "+vo.getGenre()+" "+vo.getDirector());
-		}
+		System.out.print("검색어 입력:");
+		String fd = scan.next();
+		
+		List<NewsVO> list = n.newsListData(fd);
+		for(NewsVO vo:list) {
+			System.out.println(vo.getTitle());
+			System.out.println(vo.getDescription());
+			System.out.println(vo.getPubDate());
+			System.out.println("====================================");
 		}
 
 	}
