@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+    <context:component-scan base-package="com.sist.*"/>
+    <!--
+       메모리 할당  
+       @Component, 
+       @Repository, 
+       @Service, 
+       @Controller, 
+       @RestController, 
+       @ControllerAdvice, 
+       @Configuration
+       주입
+			
+       @Required, 
+       @Autowired, *** 
+       @PostConstruct, ***
+       @PreDestroy, ***
+       @Resource, ***(JDK 1.8)
+       @PersistenceContext 
+       @PersistenceUnit
+     -->
+	
+     <!-- ViewResolver,MultipartResolver,TilesView.. -->
+     <!-- 
+        return "../main/main.jsp";
+               ===          ====
+               prefix       suffix
+               
+        return "main/main";
+      -->
+     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+         p:prefix="/"
+         p:suffix=".jsp"
+     />
+	
+	
+	
+	
+	
+</beans>
+
+
+
+
+
+
+
