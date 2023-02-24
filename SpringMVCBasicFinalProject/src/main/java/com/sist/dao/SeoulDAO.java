@@ -3,7 +3,6 @@ package com.sist.dao;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,12 +20,12 @@ public class SeoulDAO {
 	public List<SeoulVO> seoulLocationListData(Map map){
 		return mapper.seoulLocationListData(map);
 	}
-	
+
 //	@Select("select ceil(count(*)/20.0) from seoul_location")
 	public int seoulTotalPage() {
 		return mapper.seoulTotalPage();
 	}
-	
+
 	//////////////////////////////////////////////////////
 //	@Select("select * from seoulLocation where no=#{no}")
 	public SeoulVO seoulDetailData(int no) {

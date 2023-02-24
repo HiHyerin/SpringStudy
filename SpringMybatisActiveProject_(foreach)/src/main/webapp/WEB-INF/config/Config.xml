@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ <configuration>
+     <!-- VO => ResultSet  -->
+     <typeAliases>
+     	<typeAlias type="com.sist.dao.EmpVO" alias="EmpVO"/>
+     	<typeAlias type="com.sist.dao.RecipeVO" alias="RecipeVO"/>
+     	<typeAlias type="com.sist.dao.FoodVO" alias="FoodVO"/>
+     </typeAliases>
+     
+     <!-- SQL문장 저장 위치 -->
+     <mappers>
+     	<mapper resource="com/sist/dao/emp-mapper.xml"/>
+     	<mapper resource="com/sist/dao/recipe-mapper.xml"/>
+     	<mapper resource="com/sist/dao/food-mapper.xml"/>
+     	
+     </mappers>
+ </configuration>

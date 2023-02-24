@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.FoodMapper">
+	<select id="foodFindData" resultType="FoodVO" parameterType="hashmap">
+		select fno, name, poster, type, address, rownum
+		from food_location
+		
+		<trim prefixOverrides="OR" prefix="where rownum&lt;=40 and">
+			<foreach collection="typeArr" item="fd">
+				<trim prefix="OR">
+					<choose>
+						<when test="fd=='N'.toString()">
+							name LIKE '%'||#{ss}||'%'
+						</when>
+						<when test="fd=='A'.toString()">
+							address LIKE '%'||#{ss}||'%'
+						</when>
+						<when test="fd=='T'.toString()">
+							type LIKE '%'||#{ss}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</select>
+	
+	<select id="foodFindCount" resultType="int" parameterType="hashmap">
+		select count(*)
+		from food_location
+		
+		<trim prefixOverrides="OR" prefix="where">
+			<foreach collection="typeArr" item="fd">
+				<trim prefix="OR">
+					<choose>
+						<when test="fd=='N'.toString()">
+							name LIKE '%'||#{ss}||'%'
+						</when>
+						<when test="fd=='A'.toString()">
+							address LIKE '%'||#{ss}||'%'
+						</when>
+						<when test="fd=='T'.toString()">
+							type LIKE '%'||#{ss}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</select>
+</mapper>

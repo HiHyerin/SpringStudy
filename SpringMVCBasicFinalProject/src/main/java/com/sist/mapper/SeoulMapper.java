@@ -14,12 +14,12 @@ public interface SeoulMapper {
 			+ "from seoul_location order by no asc)) "
 			+ "where num between #{start} and #{end}")
 	public List<SeoulVO> seoulLocationListData(Map map);
-	
+
 	@Select("select ceil(count(*)/20.0) from seoul_location")
 	public int seoulTotalPage();
-	
+
 	////////////////////////////////////////////////////////////
-	
+
 	@Select("select * from seoul_location where no=#{no}")
 	public SeoulVO seoulDetailData(int no);
 }

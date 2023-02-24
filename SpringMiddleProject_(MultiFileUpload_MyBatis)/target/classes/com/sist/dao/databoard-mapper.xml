@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.DataBoardMapper">
+
+	<select id="databoardFindData" resultType="DataBoardVO" parameterType="hashmap">
+		select no, subject, name, to_char(regdate,'YYYY-MM-DD') as dbday, hit, filecount
+		from spring_databoard
+		where 
+		<trim prefixOverrides="OR">
+			<foreach collection="fsArr" item="fd">
+				<trim prefix="OR">
+					<choose>
+						<when test="fd=='N'.toString()">
+							name LIKE '%'||#{ss}||'%'
+						</when>
+						<when test="fd=='S'.toString()">
+							subject LIKE '%'||#{ss}||'%'
+						</when>
+						<when test="fd=='C'.toString()">
+							content LIKE '%'||#{ss}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+			<!-- fsArr->컨트롤러 -->
+		</trim>
+	</select>
+		<!-- 
+		<trim prefixOverrides="OR">
+			<foreach collection="fsArr" item="fd">
+				<trim prefix="OR">
+						<if test="fd=='N'.toString()">
+							name LIKE '%'||#{ss}||'%'
+						</if>
+						<if test="fd=='S'.toString()">
+							subject LIKE '%'||#{ss}||'%'
+						</if>
+						<if test="fd=='C'.toString()">
+							content LIKE '%'||#{ss}||'%'
+						</if>
+				</trim>
+			</foreach>
+		</trim>
+	 -->
+</mapper>

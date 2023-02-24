@@ -50,5 +50,9 @@
 //com.springsource.config.ui.prefs.activePageIndex\:/SpringMiddleProject4_DI(Annotation+XML)/src/main/java/application-datasource.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/SpringMiddleProject5_AOP(Transaction)/src/main/java/app.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/SpringMiddleProject6_DI(Final)/src/main/java/app.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringMiddleProject_(MultiFileUpload_MyBatis)/src/main/webapp/WEB-INF/config/application-context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringMiddleProject_(MultiFileUpload_MyBatis)/src/main/webapp/WEB-INF/config/application-datasource.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringMybatisActiveProject_(foreach)/src/main/webapp/WEB-INF/config/application-context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/SpringMybatisActiveProject_(foreach)/src/main/webapp/WEB-INF/config/application-datasource.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/SpringRestProject/src/main/webapp/WEB-INF/config/application-context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 eclipse.preferences.version=1

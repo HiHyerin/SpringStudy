@@ -1,5 +1,6 @@
 package com.sist.mapper;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Select;
 
@@ -13,13 +14,13 @@ public interface JejuMapper {
          +"FROM jejuLocation ORDER BY no ASC)) "
          +"WHERE num BETWEEN #{start} AND #{end}")
    public List<JejuLocationVO> jejuLocationListData(Map map);
-   
+
    @Select("SELECT CEIL(count(*)/20.0) FROM jejuLocation")
    public int jejuTotalPage();
-   
+
    @Select("select * from jejuLocation where no=#{no}")
    public JejuLocationVO jejuDetailData(int no);
-   
+
    @Select("select no, title, poster, score, rownum "
    		+ "from jejuFood "
    		+ "where rownum<=4 and addr2 like '%'||#{addr}||'%'")

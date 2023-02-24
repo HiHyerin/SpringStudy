@@ -19,7 +19,7 @@ import com.sist.vo.FoodVO;
 public class FoodController {
 	@Autowired
 	private FoodDAO dao;
-	
+
 	@GetMapping("food/category.do")
 	public String food_category(String no, Model model) {
 		if(no==null)
@@ -30,18 +30,18 @@ public class FoodController {
 		model.addAttribute("list",list);
 		return "food/category";
 	}
-	
+
 	// <a href="../food/list.do?cno=${vo.cno }"> => category.jsp
 	@GetMapping("food/list.do")
 	public String food_list(int cno, Model model) {
 		List<FoodVO> list = dao.foodListData(cno);
 		CategoryVO vo = dao.categoryInfoData(cno);
 		model.addAttribute("list",list);
-		model.addAttribute("vo", vo); // 내가 list.jsp에서 보여주고싶은 것 
-		
+		model.addAttribute("vo", vo); // 내가 list.jsp에서 보여주고싶은 것
+
 		return "food/list";
 	}
-	
+
 	// /food/detail.do?fno=${fvo.fno }
 	@GetMapping("food/detail.do")
 	public String food_detail(int fno, Model model) {
@@ -49,17 +49,17 @@ public class FoodController {
 		model.addAttribute("vo", vo);
 		return "food/detail";
 	}
-	
+
 	@RequestMapping("food/find.do") // post+get
 	public String food_find(String addr, String page, Model model) {
 		System.out.println("addr: "+ addr);
 		String s="";
 		if(addr == null || addr.equals("")) {
 			s = "all";
-		}else {
+		}else {	
 			s = addr;
 		}
-		
+
 		if(page == null)
 			page = "1";
 		int curpage = Integer.parseInt(page);
@@ -72,7 +72,7 @@ public class FoodController {
 		map.put("ss", s);
 		List<FoodVO> list = dao.foodFindData(map);
 		model.addAttribute("list", list);
-		
+
 		return "food/find";
 	}
 }

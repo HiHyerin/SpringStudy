@@ -40,6 +40,11 @@
 			<tr>
 				<td>${vo.content }</td>
 			</tr>
+			<tr>
+				<td class="text-right">
+					<a href="list.do" class="btn btn-sm btn-primary">목록</a>
+				</td>
+			</tr>
 		</table>
 	  </div>
 	  <div style="height: 10px"></div>

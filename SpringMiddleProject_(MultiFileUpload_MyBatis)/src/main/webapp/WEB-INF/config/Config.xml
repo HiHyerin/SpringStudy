@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ <configuration>
+     <!-- VO => ResultSet  -->
+     <typeAliases>
+     	<typeAlias type="com.sist.dao.DataBoardVO" alias="DataBoardVO"/>
+     </typeAliases>
+     
+     <!-- SQL문장 저장 위치 -->
+     <mappers>
+     	<mapper resource="com/sist/dao/databoard-mapper.xml"/>
+     	
+     </mappers>
+ </configuration>

@@ -26,7 +26,7 @@
 			<c:forEach var="vo" items="${list }">
 				<div class="col-md-3">
 					<div class="thumbnail">
-						<a href="../seoul/detail.do?no=${vo.no }"> 
+						<a href="../seoul/detail_before.do?no=${vo.no }"> 
 						<img src="${vo.poster}" alt="Lights" style="width: 280px; height: 180px">
 							<div class="caption">
 								<p>${vo.title}</p>
@@ -41,16 +41,33 @@
 			<div class="text-center">
 				<ul class="pagination">
 				<c:if test="${startPage>1 }"><%--startPage : 1, 6, 11, 16.. --%>
-					<li><a href="../jeju/list.do?page=${startPage-1 }">&lt;</a></li>
+					<li><a href="../seoul/list.do?page=${startPage-1 }">&lt;</a></li>
 				</c:if>
 				<c:forEach var="i" begin="${startPage }" end="${endPage }">
 					<li ${curpage==i?"class=active":"" }><a href="../seoul/list.do?page=${i }">${i }</a></li>
 				</c:forEach>
 				<c:if test="${endPage<totalpage }">
-				  <li><a href="../jeju/list.do?page=${endPage+1 }">&gt;</a></li>
+				  <li><a href="../seoul/list.do?page=${endPage+1 }">&gt;</a></li>
 				 </c:if>
 				</ul>
 			</div>
+		</div>
+		<div style="height: 20px"></div>
+		<h3>최근 방문 장소</h3>
+		<hr>
+		<div class="row">
+			<c:forEach var="vo" items="${sList }">
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<a href="../seoul/detail.do?no=${vo.no }"> 
+						<img src="${vo.poster}" alt="Lights" style="width: 280px; height: 180px">
+							<div class="caption">
+								<p>${vo.title}</p>
+							</div>
+						</a>
+					</div>
+				</div>
+			</c:forEach>
 		</div>
 	</div>
 </body>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   xmlns:util="http://www.springframework.org/schema/util"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+      http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+      http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+   <!-- 
+      DI: 스프링 안에서 클래스간의 연관 관계를 설정
+      AOP: 반복적인 기능을 모았다고 필요시마다 자동 호출(공통모듈)
+      Vue/React => 차이점
+      양방향 / 단방향
+      
+    -->   
+   <util:properties id="db" location="/WEB-INF/config/db.properties"/>
+   <!-- 데이터베이스 정보: BasicDataSource -->
+   <bean id="ds" class="org.apache.commons.dbcp.BasicDataSource"
+     p:driverClassName="#{db['driver']}"
+     p:url="#{db['url']}"
+     p:username="#{db['username']}"
+     p:password="#{db['password']}"
+   />
+   <!-- 트랜잭션 설정 -->
+   <!-- MyBatis 로그파일 등록 -->
+   <bean id="dataSource" 
+          class="net.sf.log4jdbc.Log4jdbcProxyDataSource"> 
+      <constructor-arg ref="ds" /> 
+      <property name="logFormatter"> 
+        <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter"> 
+        <property name="loggingType" value="MULTI_LINE" /> 
+        <property name="sqlPrefix" value="SQL : "/> 
+        </bean> 
+      </property> 
+    </bean>
+   
+   <!-- MyBatis 라이브러리 전송: SqlSessionFactortyBean -->
+   <bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean"
+     p:dataSource-ref="dataSource"
+     p:configLocation="/WEB-INF/config/Config.xml"
+   />
+   <!-- mapper 구현: MapperFactoryBean: mybatis-spring(package등록) -->
+   <mybatis-spring:scan base-package="com.sist.mapper" factory-ref="ssf"/>
+	<!-- 이거 덕분에 mapper파일 @autowired할 수 있는거임 인터페이스는 메모리 할당을 못하기 때문에 이 문장이 매퍼를 구현함 -->
+</beans> 
