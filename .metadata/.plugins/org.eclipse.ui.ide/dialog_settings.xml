@@ -111,6 +111,10 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\springDev\springStudy\Servers"/>
+			<item value="C:\springDev\springStudy\SpringMVCBasicFinalProject"/>
+			<item value="C:\springDev\springStudy\SpringMybatisActiveProject_(foreach)"/>
+			<item value="C:\springDev\springStudy\SpringMiddleProject_(MultiFileUpload_MyBatis)"/>
 			<item value="C:\springDev\SpringStudy\SpringMiddleProject4_(MVC_DATA)"/>
 			<item value="C:\springDev\SpringStudy\SpringMiddleProject3_(MVC_CRUD)"/>
 			<item value="C:\springDev\SpringStudy\SpringMVCBasicFinalProject"/>

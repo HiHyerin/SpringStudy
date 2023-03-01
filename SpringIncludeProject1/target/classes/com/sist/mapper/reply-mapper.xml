@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.ReplyMapper">
+	<!-- ResultSet 값 첨부 과정 -->
+	<resultMap type="com.sist.vo.ReplyVO" id="replyMap">
+		<result property="no" column="no"/>
+		<!-- vo.setNo(rs.getInt("no")) -->
+		<result property="rno" column="rno"/>
+		<result property="type" column="type"/>
+		<result property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="msg" column="msg"/>
+		<result property="regdate" column="regdate"/>
+		<result property="dbday" column="dbday"/>
+	</resultMap>
+</mapper>
