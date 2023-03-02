@@ -11,3 +11,19 @@ create table spring_databoard(
     filecount number default 0,
     constraint sd_no_pk primary key(no)
 );
+
+desc spring_databoard;
+
+commit;
+
+drop table recipe;
+
+CREATE TABLE recipe(
+    no NUMBER,
+    title VARCHAR2(1000) CONSTRAINT recipe_title_nn NOT NULL,
+    poster VARCHAR2(260) CONSTRAINT recipe_poster_nn NOT NULL,
+    chef VARCHAR2(200) CONSTRAINT recipe_chef_nn NOT NULL,
+    link VARCHAR2(260),
+    hit NUMBER DEFAULT 0,
+    CONSTRAINT recipe_no_pk PRIMARY KEY(no)
+);
