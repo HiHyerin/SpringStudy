@@ -20,8 +20,11 @@
 <aop-reference advice-type="AFTER" bean="1:BeansModel|2:SpringIncludeProject1|3:src/main/webapp/WEB-INF/config/application-context.xml|7:beans:11|8:jejuController:11" bean-file="/SpringIncludeProject1/src/main/webapp/WEB-INF/config/application-context.xml" bean-start-line="11" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/SpringIncludeProject1/src/main/webapp/WEB-INF/config/application-context.xml" source="=SpringIncludeProject1/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.sist.aop{IncludeAOP.java[IncludeAOP~footerData" source-start-line="27" target="=SpringIncludeProject1/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.sist.web{JejuController.java[JejuController~jeju_food_detail~I~I~QModel;" target-start-line="92"/>
 </aspect-definition>
 </aop-project>
+<aop-project name="sulsul_Project"/>
 <aop-project name="SpringMiddleProject_(MultiFileUpload_MyBatis)"/>
+<aop-project name="SpringTilesProject2"/>
 <aop-project name="SpringProcedureMyBatisProject"/>
 <aop-project name="SpringMVCBasicFinalProject"/>
+<aop-project name="SpringTilesProject1"/>
 <aop-project name="SpringMybatisActiveProject_(foreach)"/>
 </aop-reference-model>

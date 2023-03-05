@@ -62,4 +62,25 @@ public class FoodDAO {
 		return mapper.foodLocationDetailData(fno);
 	}
 	
+//	@Select({
+//		"<script>"
+//		+"select cno, title, poster "
+//		+ "from project_category "
+//		+ "where "
+//		+ "<if test='no==1'> "
+//		+ "cno between 1 and 12 "
+//		+ "</if>"
+//		+ "<if test='no==1'> "
+//		+ "cno between 13 and 18 "
+//		+ "</if>"
+//		+ "<if test='no==1'> "
+//		+ "cno between 19 and 30 "
+//		+ "</if>"
+//		+ "</script>"
+//		
+//		})
+	public List<CategoryVO> categoryVueData(Map map){
+		return mapper.categoryVueData(map);
+	}
+	
 }
