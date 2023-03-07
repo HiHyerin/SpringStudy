@@ -31,7 +31,22 @@ h1{
 </head>
 <body>
    <div class="container-fluid">
-   
+       <div class="col-sm-4">
+       	  <div class="text-center">
+       		  
+       	  </div>
+       	  <div style="height: 10px"></div>
+       	  
+       </div>
+       
+       <div class="col-sm-3">
+       
+       </div>
+       
+       <div class="col-sm-5">
+       
+       </div>
+       
    </div>
    
    

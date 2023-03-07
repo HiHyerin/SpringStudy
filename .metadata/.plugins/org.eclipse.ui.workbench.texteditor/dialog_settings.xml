@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="posters"/>
+		<item key="selection" value="click"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="posters"/>
-			<item value="menus"/>
-			<item value="split"/>
-			<item value="title"/>
-			<item value="foodList"/>
-			<item value="change"/>
-			<item value="cate_list"/>
-			<item value="send"/>
-			<item value="no"/>
-			<item value="food_list"/>
-			<item value="keyword"/>
-			<item value="isShow"/>
-			<item value="th"/>
-			<item value="${addr}"/>
-			<item value="nav"/>
+			<item value="click"/>
+			<item value="food"/>
+			<item value="q"/>
+			<item value="websocket"/>
+			<item value="disConnection"/>
+			<item value="event.data"/>
+			<item value="전송"/>
+			<item value="localhost"/>
+			<item value="local"/>
+			<item value="456"/>
+			<item value="security"/>
+			<item value="chat"/>
+			<item value="socket"/>
+			<item value="web-socket"/>
+			<item value="web"/>
 		</list>
 		<list key="replacehistory">
+			<item value="../images"/>
 			<item value="td"/>
 			<item value="shop"/>
 			<item value="nature"/>
@@ -33,7 +34,7 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="144"/>
-		<item key="DIALOG_Y_ORIGIN" value="541"/>
+		<item key="DIALOG_Y_ORIGIN" value="505"/>
 		<item key="DIALOG_WIDTH" value="332"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

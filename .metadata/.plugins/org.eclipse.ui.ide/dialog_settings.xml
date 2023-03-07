@@ -111,6 +111,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\user\git\sulsul_Project\sulsul_Project"/>
+			<item value="C:\Users\user\git\sulsul_Project"/>
 			<item value="C:\Users\user\Desktop\sulsul_Project\sulsul_Project"/>
 			<item value="C:\springDev\SpringStudy\Servers"/>
 			<item value="C:\springDev\SpringStudy\SpringMiddleProject_(MultiFileUpload_MyBatis)"/>
