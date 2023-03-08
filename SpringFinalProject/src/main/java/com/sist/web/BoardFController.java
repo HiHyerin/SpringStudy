@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class BoardController {
+public class BoardFController {
 	@GetMapping("board/list.do")
 	public String board_list() {
 		

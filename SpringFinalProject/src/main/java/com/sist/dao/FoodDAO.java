@@ -48,4 +48,42 @@ public class FoodDAO {
 		mapper.foodHitIncrement(fno);;
 		return mapper.foodDetailData(fno);
 	}
+	
+	////////////////////////////////////////////////////////////
+	// 주소별 검색
+//		@Select("select fno, name, poster, score, num "
+//				+ "from (select fno, name, poster, score, rownum as num "
+//				+ "from (select fno, name, poster, score "
+//				+ "from food_location "
+//				+ "where address LIKE '%'||#{adress}||'%' order by fno asc)) "
+//				+ "where num between #{start} and #{end}")
+		public List<FoodVO> foodLocationFindData(Map map){
+			return mapper.foodLocationFindData(map);
+		}
+		
+		// 상세보기
+//		@Select("select * from food_location "
+//				+ "where fno=#{fno}")
+		public FoodVO foodLocationDetailData(int fno) {
+			return mapper.foodLocationDetailData(fno);
+		}
+		
+		// 총페이지
+//		@Select("select ceil(count(*)/20.0) "
+//				+ "from food_location "
+//				+ "where address like '%'||#{address}||'%'")
+		public int foodFindTotalPage(String address) {
+			return mapper.foodFindTotalPage(address);
+		}
+		////////////////////////////////////////////////////////////
+		
+		////////////////////////////////////////////////////////////
+		//Top-N
+//		@Select("select fno, name, address, rownum "
+//				+ "from (select fno, name, address "
+//				+ "from project_food order by hit desc) "
+//				+ "where rownum<=7")
+		public List<FoodVO> foodTop7(){
+			return mapper.foodTop7();
+		}
 }

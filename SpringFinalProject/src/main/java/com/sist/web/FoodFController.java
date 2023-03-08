@@ -14,7 +14,7 @@ import com.sist.vo.*;
 import com.sist.dao.*;
 @Controller
 // front에서는 router가 controller 역할
-public class FoodController {
+public class FoodFController {
 	@Autowired
 	private FoodDAO dao;
 	
@@ -40,6 +40,12 @@ public class FoodController {
 	public String food_detail(int fno, Model model) {
 		model.addAttribute("fno", fno);
 		return "food/food_detail";
+	}
+	
+	//검색/////////////////////////////////////////////
+	@GetMapping("food/food_find.do")
+	public String food_find() {
+		return "food/food_find";
 	}
 	
 	

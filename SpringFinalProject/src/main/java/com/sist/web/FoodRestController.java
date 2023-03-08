@@ -140,4 +140,101 @@ public class FoodRestController {
 		
 		return obj.toJSONString();
 	}
+	
+	//검색/////////////////////////////////////////////////////////////////////
+	@GetMapping(value="food/food_find_vue.do", produces = "text/plain;charset=utf-8")
+	public String food_find_vue(String page, String address) {
+		if(page==null)
+			page="1";
+		if(address == null)
+			address="역삼";
+		int curpage = Integer.parseInt(page);
+		Map map = new HashMap<>();
+		map.put("start", (curpage*20)-19);
+		map.put("end", curpage*20);
+		map.put("address", address);
+		List<FoodVO> list = dao.foodLocationFindData(map);
+		int totalpage = dao.foodFindTotalPage(address);
+		
+		final int BLOCK=3;
+		int startPage = ((curpage-1)/BLOCK*BLOCK)+1;
+		int endPage = ((curpage-1)/BLOCK*BLOCK)+BLOCK;
+		if(endPage>totalpage)
+			endPage = totalpage;
+		
+		// 데이터 전송 : Json
+		int i=0;
+		JSONArray arr = new JSONArray();
+		for(FoodVO vo:list) {
+			JSONObject obj = new JSONObject();
+			obj.put("fno", vo.getFno());
+			obj.put("name", vo.getName());
+			obj.put("score", vo.getScore());
+			String poster = vo.getPoster();
+			poster = poster.substring(0,poster.indexOf("^"));
+			poster = poster.replace("#", "&");
+			obj.put("poster", poster);
+			
+			if(i == 0) {
+				obj.put("curpage", curpage);
+				obj.put("totalpage", totalpage);
+				obj.put("startPage", startPage);
+				obj.put("endPage", endPage);
+			}
+			arr.add(obj);
+			i++;
+			
+		}
+		return arr.toJSONString();
+	}
+	// 검색페이지 지도
+	@GetMapping(value="food/food_find_gu_vue.do",  produces = "text/plain;charset=utf-8")
+	public String food_find_fu_vue(String page, int gu) {
+		String[] guList = { "전체", "강서구", "양천구", "구로구", "마포구", "영등포구", "금천구",
+				"은평구", "서대문구", "동작구", "관악구", "종로구", "중구", "용산구", "서초구", "강북구",
+				"성북구", "도봉구", "동대문구", "성동구", "강남구", "노원구", "중랑구", "광진구", "송파구",
+				"강동구" };
+		
+		if(page==null)
+			page="1";
+		int curpage = Integer.parseInt(page);
+		Map map = new HashMap<>();
+		map.put("start", (curpage*20)-19);
+		map.put("end", curpage*20);
+		map.put("address", guList[gu]);
+		List<FoodVO> list = dao.foodLocationFindData(map);
+		int totalpage = dao.foodFindTotalPage(guList[gu]);
+		
+		final int BLOCK=3;
+		int startPage = ((curpage-1)/BLOCK*BLOCK)+1;
+		int endPage = ((curpage-1)/BLOCK*BLOCK)+BLOCK;
+		if(endPage>totalpage)
+			endPage = totalpage;
+		
+		// 데이터 전송 : Json
+		int i=0;
+		JSONArray arr = new JSONArray();
+		for(FoodVO vo:list) {
+			JSONObject obj = new JSONObject();
+			obj.put("fno", vo.getFno());
+			obj.put("name", vo.getName());
+			obj.put("score", vo.getScore());
+			String poster = vo.getPoster();
+			poster = poster.substring(0,poster.indexOf("^"));
+			poster = poster.replace("#", "&");
+			obj.put("poster", poster);
+			
+			if(i == 0) {
+				obj.put("curpage", curpage);
+				obj.put("totalpage", totalpage);
+				obj.put("startPage", startPage);
+				obj.put("endPage", endPage);
+			}
+			arr.add(obj);
+			i++;
+			
+		}
+		return arr.toJSONString();
+	}
+/////////////////////////////////////////////////////////////////////
 }

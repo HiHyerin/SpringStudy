@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sist.dao.*;
 import com.sist.vo.*;
 @RestController
-public class MemberController {
+public class MemberFController {
    @Autowired
    private MemberDAO dao;
    

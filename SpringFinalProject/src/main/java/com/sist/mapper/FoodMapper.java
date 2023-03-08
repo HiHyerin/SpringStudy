@@ -28,4 +28,34 @@ public interface FoodMapper {
 	@Select("select * from project_food "
 			+ "where fno=#{fno}")
 	public FoodVO foodDetailData(int fno);
+	
+	// 주소별 검색
+	@Select("select fno, name, poster, score, num "
+			+ "from (select fno, name, poster, score, rownum as num "
+			+ "from (select fno, name, poster, score "
+			+ "from food_location "
+			+ "where address LIKE '%'||#{address}||'%' order by fno asc)) "
+			+ "where num between #{start} and #{end}")
+	public List<FoodVO> foodLocationFindData(Map map);
+	
+	// 상세보기
+	@Select("select * from food_location "
+			+ "where fno=#{fno}")
+	public FoodVO foodLocationDetailData(int fno);
+	
+	// 총페이지
+	@Select("select ceil(count(*)/20.0) "
+			+ "from food_location "
+			+ "where address like '%'||#{address}||'%'")
+	public int foodFindTotalPage(String address);
+	
+	///////////////////////////////////////////////////////////////////////
+	
+	// 인기맛집7
+	@Select("select fno, name, address, score, rownum "
+			+ "from (select fno, name, address, score "
+			+ "from project_food order by hit desc) "
+			+ "where rownum<=7")
+	public List<FoodVO> foodTop7();
+	
 }
