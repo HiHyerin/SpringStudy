@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="검색"/>
+		<item key="selection" value="untree_co-hero"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="untree_co-hero"/>
+			<item value="untree_co-hero&quot;"/>
+			<item value="align-items"/>
+			<item value="align-items-center"/>
+			<item value="row align-items-center"/>
+			<item value="The New Way To Sell Your Products by Untree.co"/>
 			<item value="ood"/>
 			<item value="검색"/>
 			<item value="range"/>
@@ -17,12 +23,6 @@
 			<item value="wirte "/>
 			<item value="wirte()"/>
 			<item value="th"/>
-			<item value="click"/>
-			<item value="food"/>
-			<item value="q"/>
-			<item value="websocket"/>
-			<item value="disConnection"/>
-			<item value="event.data"/>
 		</list>
 		<list key="replacehistory">
 			<item value="td"/>

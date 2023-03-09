@@ -67,7 +67,7 @@ public class NaverNewsManager {
         String responseBody = get(apiURL,requestHeaders);
 
 
-        System.out.println(responseBody);
+        //System.out.println(responseBody);
         return responseBody;
 	}
 	private String get(String apiUrl, Map<String, String> requestHeaders){
