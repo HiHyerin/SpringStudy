@@ -111,6 +111,11 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\song\Desktop\sulsul_Project\sulsul_Project"/>
+			<item value="C:\springDev\springStudy\SpringIncludeProject1"/>
+			<item value="C:\springDev\springStudy\SpringFinalProject"/>
+			<item value="C:\springDev\springStudy\SpringTilesProject2"/>
+			<item value="C:\springDev\springStudy\SpringTilesProject1"/>
 			<item value="C:\Users\user\git\sulsul_Project\sulsul_Project"/>
 			<item value="C:\Users\user\git\sulsul_Project"/>
 			<item value="C:\Users\user\Desktop\sulsul_Project\sulsul_Project"/>

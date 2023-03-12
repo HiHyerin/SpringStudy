@@ -5,6 +5,9 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+
 import java.util.*;
 
 import javax.servlet.http.Cookie;
@@ -42,6 +45,38 @@ public class FoodRestController {
 		}
 		return arr.toJSONString();
 	}
+	////////////////////////////////////////////////////////
+	//vue4
+	@GetMapping(value="food/food_category_vue.do", produces = "text/plain;charset=utf-8")
+	public String food_category_vue() {
+		/*
+		 	{"cate1":[{}<{}<{}...], "cate2":[{}<{}<{}...], "cate3":[{}<{}<{}...]}
+		 */
+		List<CategoryVO> list = dao.categoryListData();
+		JSONObject root = new JSONObject();
+		JSONArray arr1 = new JSONArray();
+		JSONArray arr2 = new JSONArray();
+		JSONArray arr3 = new JSONArray();
+		for(int i=0;i<list.size();i++) {
+			CategoryVO vo = list.get(i);
+			JSONObject obj = new JSONObject();
+			obj.put("cno", vo.getCno());
+			obj.put("title", vo.getTitle());
+			obj.put("poster", vo.getPoster());
+			if(i>=0 && i<12) {
+				arr1.add(obj);
+			}else if(i>=12 && i<18){
+				arr2.add(obj);
+			}else if(i>=18 && i<30) {
+				arr3.add(obj);
+			}
+		}
+		root.put("cate1", arr1);
+		root.put("cate2", arr2);
+		root.put("cate3", arr3);
+		return root.toJSONString();
+	}
+	/////////////////////////////////////////////////////////
 	
 	//쿠키/////////////////////////////////////////////////////
 	@GetMapping(value="food/cookie_data_vue.do", produces = "text/plain;charset=utf-8")

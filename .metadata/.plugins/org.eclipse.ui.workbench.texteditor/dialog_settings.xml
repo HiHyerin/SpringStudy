@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="untree_co-hero"/>
+		<item key="selection" value="새로운"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="untree_co-hero"/>
-			<item value="untree_co-hero&quot;"/>
-			<item value="align-items"/>
-			<item value="align-items-center"/>
-			<item value="row align-items-center"/>
-			<item value="The New Way To Sell Your Products by Untree.co"/>
-			<item value="ood"/>
-			<item value="검색"/>
-			<item value="range"/>
-			<item value="del"/>
-			<item value="his"/>
-			<item value="wirte"/>
-			<item value="wirte "/>
-			<item value="wirte()"/>
-			<item value="th"/>
+			<item value="새로운"/>
+			<item value="yell"/>
+			<item value="pink"/>
+			<item value="green"/>
+			<item value="send"/>
+			<item value="insert"/>
+			<item value="regular/detail_vue.do"/>
+			<item value="board_list"/>
+			<item value="regularBoard_list"/>
+			<item value="details"/>
+			<item value="fileList"/>
+			<item value="addFile"/>
+			<item value="hidden"/>
+			<item value="form"/>
+			<item value="addBtn"/>
 		</list>
 		<list key="replacehistory">
 			<item value="td"/>
@@ -33,8 +33,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="204"/>
-		<item key="DIALOG_Y_ORIGIN" value="649"/>
+		<item key="DIALOG_X_ORIGIN" value="4"/>
+		<item key="DIALOG_Y_ORIGIN" value="759"/>
 		<item key="DIALOG_WIDTH" value="332"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

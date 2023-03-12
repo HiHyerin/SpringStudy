@@ -25,6 +25,7 @@ h1{
 let fileIndex = 0;
 $(function(){
 	$('#addBtn').click(function(){
+		console.log("addBtn누름"),
 		$('#user-table').append(
 			'<tr id="m'+(fileIndex)+'">'
 			+'<td width="20%">File '+(fileIndex+1)+'</td>'
