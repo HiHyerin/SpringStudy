@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+.container{
+	margin-top: 50px;
+	
+}
+.row{
+	margin: 0px auto;
+	width: 900px;
+}
+
+h1{
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+	    <h3>믿고 보는 맛집 리스트</h3>
+	    <hr>
+	    <div class=row>
+	    	<!-- for(JejuEntity vo:list) -->
+	         <div class="col-md-4" th:each="vo:${list}">
+	         
+	          <div class="thumbnail">
+	            <a href="#">
+	             <img th:src="${vo.hotel_image }" style="width:200px; height: 200px">
+	              <div class="caption">
+	                <p th:text="${vo.name}"></p>
+	                <p th:text="${vo.grade}"></p>
+	              </div>
+	            </a>
+	          </div>
+	        </div>
+	    </div>
+	   
+	</div>
+</body>
+</html>

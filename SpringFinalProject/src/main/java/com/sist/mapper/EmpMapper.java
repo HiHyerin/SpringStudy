@@ -1,16 +1,17 @@
 package com.sist.mapper;
-import com.sist.vo.*;
-import java.util.*;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+
+import com.sist.vo.EmpVO;
 public interface EmpMapper {
 	/*
 	 	select empno, ename, job, dname, loc
 	 	from emp, dept
 	 	where emp.deptno = dept.deptno
-	 	
+
 	 	=> ResultSet rs = ps.executeQuery()
 	 	while(rs.next()){
 	 		EmpVO vo = new EmpVO();
@@ -21,7 +22,7 @@ public interface EmpMapper {
 	 		  => vo.getDVO().setDname(rs.getString("dname")
 	 		   + vo.getDVO().setLoc
 	 	}
-	 	
+
 	 */
 	// join
 	@Results({

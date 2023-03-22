@@ -1,13 +1,11 @@
 package com.sist.dao;
-import com.sist.mapper.*;
-import com.sist.vo.*;
-import java.util.*;
+import java.util.List;
 
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.sist.mapper.EmpMapper;
+import com.sist.vo.EmpVO;
 @Repository
 public class EmpDAO {
 	@Autowired
@@ -23,5 +21,5 @@ public class EmpDAO {
 	public List<EmpVO> empListData(){
 		return mapper.empListData();
 	}
-	
+
 }

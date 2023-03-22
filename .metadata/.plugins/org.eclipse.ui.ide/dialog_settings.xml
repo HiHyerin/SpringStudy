@@ -111,6 +111,11 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\user\Downloads\DataCollectionProject"/>
+			<item value="C:\springDev\SpringStudy\SpringRestProject"/>
+			<item value="C:\springDev\SpringStudy\SpringTilesProject1"/>
+			<item value="C:\springDev\SpringStudy\SpringTilesProject2"/>
+			<item value="C:\springDev\SpringStudy\SpringFinalProject"/>
 			<item value="C:\Users\song\Desktop\sulsul_Project\sulsul_Project"/>
 			<item value="C:\springDev\springStudy\SpringIncludeProject1"/>
 			<item value="C:\springDev\springStudy\SpringFinalProject"/>
@@ -139,6 +144,8 @@
 		<item key="DIALOG_WIDTH" value="500"/>
 		<item key="DIALOG_HEIGHT" value="389"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		<item key="BUILD_NOW" value="true"/>
+		<item key="BUILD_ALL" value="true"/>
 	</section>
 	<section name="ChooseWorkspaceDialogSettings">
 		<item key="DIALOG_X_ORIGIN" value="647"/>

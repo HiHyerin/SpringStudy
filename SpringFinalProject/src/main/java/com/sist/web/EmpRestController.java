@@ -1,7 +1,7 @@
 package com.sist.web;
 // vo => mapper => dao => controller => jsp(javascript : rest -> 타 프로그램과 연동)
 
-import java.util.*;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -9,14 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sist.dao.*;
-import com.sist.vo.*;
+import com.sist.dao.EmpDAO;
+import com.sist.vo.EmpVO;
 
 @RestController
 public class EmpRestController {
 	@Autowired
 	private EmpDAO dao;
-	
+
 	@GetMapping(value="emp/list.do", produces = "text/plain;charset=utf-8")
 	public String emp_list() {
 		List<EmpVO> list = dao.empListData(); // => JSON으로 변환 [] (JsonArray)
@@ -35,5 +35,5 @@ public class EmpRestController {
 		}
 		return arr.toJSONString();
 	}
-	
+
 }

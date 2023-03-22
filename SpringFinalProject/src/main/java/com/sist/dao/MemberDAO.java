@@ -1,48 +1,37 @@
 package com.sist.dao;
-import com.sist.vo.*;
-
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sist.mapper.*;
+import com.sist.mapper.MemberMapper;
+import com.sist.vo.MemberVO;
 
 @Repository
 public class MemberDAO {
   @Autowired
   private MemberMapper mapper;
-  
+
   /*@Select("SELECT COUNT(*) FROM chat_member "
 		 +"WHERE id=#{id}")
   public int memberIdCheck(String id);
-	  
+
   @Select("SELECT id,pwd,name FROM chat_member "
 		 +"WHERE id=#{id}")*/
   public MemberVO memberLogin(String id,String pwd)
   {
-	  MemberVO vo=new MemberVO();
-	  // ID 체크 
-	  int count=mapper.memberIdCheck(id);
-	  if(count==0)//ID가 없는 상태
-	  {
-		  vo.setMsg("NOID");
-	  }
-	  else
-	  {
-		  MemberVO dbvo=mapper.memberLogin(id);
-		  if(dbvo.getPwd().equals(pwd))
-		  {
-			  vo.setMsg("OK");
-			  vo.setId(dbvo.getId());
-			  vo.setName(dbvo.getName());
-		  }
-		  else
-		  {
-			  vo.setMsg("NOPWD");
-		  }
-	  }
+	  MemberVO vo = mapper.memberLogin(id);
 	  return vo;
   }
+  //JOIN
+//	@Insert("insert into spring_join values("
+//			+ "#{id}, #{pwd}, #{name}, 'n')")
+	public void memberInsert(MemberVO vo) {
+		mapper.memberInsert(vo);
+	}
+  
+	public int memberIdCheck(String id) {
+		return mapper.memberIdCheck(id);
+	}
 }
 
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="wrapper row3">
+	  <main class="container clear"> 
+	    <!-- main body --> 
+	    <!-- ################################################################################################ -->
+	    <div class="content"> 
+	      <!-- ################################################################################################ -->
+	      <div id="gallery">
+	        <figure>
+	          <header class="heading">
+	          	<form method="post" action="/food/food_find" class="inline">
+	          		<input type=text name=address size=20 class="input-sm">
+	          		<input type=submit value="검색" class="btn btn-sm btn-primary">
+	          	</form>
+	          </header>
+	          <ul class="nospace clear">
+	            <li th:each="vo,i:${list}" th:class="${i.index%4==0}?'one_quarter first':'one_quarter'"><a th:href="@{/food/find_detail(fno=${vo.fno})}"><img th:src="${vo.poster}" th:title="${vo.name}" ></a></li>
+	          </ul>
+	          <figcaption></figcaption>
+	        </figure>
+	      </div>
+	      <!-- ################################################################################################ --> 
+	      <!-- ################################################################################################ -->
+	      <nav class="pagination">
+	        <ul>
+	          <li th:if="${startPage>1}"><a th:href="@{/food/food_find(page=${startPage-1},address=${address})}">&laquo; Previous</a></li>
+	          <li th:class="${curpage == i}?'current':''" th:each="i:${#numbers.sequence(startPage,endPage)}"><a th:href="@{/food/food_find(page=${i},address=${address})}"  th:text="${i}">1</a></li>
+	          <li th:if="${endPage<totalpage}"><a th:href="@{/food/food_find(page=${endPage+1},address=${address})}">Next &raquo;</a></li>
+	        </ul>
+	      </nav>
+	      <!-- ################################################################################################ --> 
+	    </div>
+	    <!-- ################################################################################################ --> 
+	    <!-- / main body -->
+	    <div class="clear"></div>
+	  </main>
+	</div>
+</body>
+</html>

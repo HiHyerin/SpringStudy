@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="wrapper row3">
+	  <main class="container clear">
+	   	<div class="jumbotron">
+	   		<h3 class="text-center" th:text="${cvo.title}"></h3>
+	   		<h4 class="text-center" th:text="${cvo.subject}"></h4>
+	   	</div> 
+	   	<div class="row">
+	   	  <table class="table">
+	   	    <tr>
+	   	      <td>
+	   	        <table class="table" th:each="vo:${list}">
+	   	          <tr>
+	   	            <td class="text-center" width="30%" rowspan="4">
+	   	              <a th:href="@{/food/food_detail(fno=${vo.fno})}">
+	   	              	<img th:src="${vo.poster}" style="width: 320px;height: 150px" class="img-rounded">
+	   	              </a>
+	   	            </td>
+	   	            <td width=70%><a th:href="@{/food/food_detail(fno=${vo.fno})}"><span th:text="${vo.name}"></span></a>&nbsp;<span style="color:orange" th:text="${vo.score}"></span></td>
+	   	          </tr>
+	   	          <tr>
+	   	            <td width="70%" th:text="${vo.address}"></td>
+	   	          </tr>
+	   	          <tr>
+	   	            <td width="70%" th:text="${vo.tel}"></td>
+	   	          </tr>
+	   	          <tr>
+	   	            <td width="70%" th:text="${vo.type}"></td>
+	   	          </tr>
+	   	        </table>
+	   	      </td>
+	   	    </tr>
+	   	  </table>
+	   	</div>
+	  </main>
+	 </div>
+</body>
+</html>

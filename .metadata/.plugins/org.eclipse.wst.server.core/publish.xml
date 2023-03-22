@@ -4,4 +4,6 @@
   <server id="Tomcat v9.0 Server at localhost (2)" path="publish1.dat"/>
   <server id="Tomcat v9.0 Server at localhost (3)" path="publish2.dat"/>
   <server id="Tomcat v9.0 Server at localhost (4)" path="publish3.dat"/>
+  <server id="Tomcat v9.0 Server at localhost (5)" path="publish2.dat"/>
+  <server id="Tomcat v9.0 Server at localhost (6)" path="publish4.dat"/>
 </publish-info>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="wrapper row3">
+	  <main class="container clear">
+	    <table class="table">
+			<tr>
+				<td width=20% class="text-center danger">번호</td>
+				<td width=30% class="text-center" th:text="${vo.no }"></td>
+				<td width=20% class="text-center danger">작성일</td>
+				<td width=30% class="text-center" th:text="${vo.regdate }"></td>
+			</tr>
+			<tr>
+				<td width=20% class="text-center danger">이름</td>
+				<td width=30% class="text-center" th:text="${vo.name }"></td>
+				<td width=20% class="text-center danger">조회수</td>
+				<td width=30% class="text-center" th:text="${vo.hit }"></td>
+			</tr>
+			<tr>
+				<td width=20% class="text-center danger">제목</td>
+				<td colspan="3" th:text="${vo.subject }"></td>
+			</tr>
+			<tr>
+				<td colspan = "4" class="text-left" valign="top" height="200">
+				<pre style="white-space: pre-wrap; background-color: white; border:none" th:text="${vo.content }">
+				</pre></td>
+			</tr>
+			<tr>
+				<td colspan="4" class="text-right">
+					<a th:href="@{/board/board_update(no=${vo.no})}" class="btn btn-xs btn-danger">수정</a>
+					<a th:href="@{/board/board_delete(no=${vo.no})}" class="btn btn-xs btn-info">삭제</a>
+					<a href="/board/board_list" class="btn btn-xs btn-primary">목록</a>
+				</td>
+			</tr>
+		</table>
+	  </main>
+	</div>
+</body>
+</html>

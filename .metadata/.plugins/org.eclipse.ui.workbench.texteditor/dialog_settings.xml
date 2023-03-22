@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="새로운"/>
+		<item key="selection" value="#f7c902"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="새로운"/>
-			<item value="yell"/>
-			<item value="pink"/>
-			<item value="green"/>
-			<item value="send"/>
-			<item value="insert"/>
-			<item value="regular/detail_vue.do"/>
-			<item value="board_list"/>
-			<item value="regularBoard_list"/>
-			<item value="details"/>
-			<item value="fileList"/>
-			<item value="addFile"/>
-			<item value="hidden"/>
-			<item value="form"/>
-			<item value="addBtn"/>
+			<item value="&#x09;          &lt;li th:if=&quot;${startPage&gt;1}&quot;&gt;&lt;a th:href=&quot;@{/jeju/hotel_find(page=${startPage-1},name=${addr})}&quot;&gt;&amp;laquo; Previous&lt;/a&gt;&lt;/li&gt;"/>
+			<item value="#f1ae02"/>
+			<item value="#E05149"/>
+			<item value="th"/>
+			<item value="검색"/>
+			<item value="lombok"/>
+			<item value="mysq"/>
+			<item value="mysql"/>
+			<item value=".get"/>
+			<item value="axi"/>
+			<item value="null"/>
+			<item value="new_list"/>
+			<item value="popularChange"/>
+			<item value="어때"/>
+			<item value="어떄"/>
 		</list>
 		<list key="replacehistory">
+			<item value="#f7c902"/>
+			<item value="#f1ae02"/>
 			<item value="td"/>
+			<item value="name"/>
+			<item value="spring_join"/>
+			<item value=""/>
+			<item value="localhost"/>
+			<item value="localhost:8080"/>
+			<item value=", "/>
 			<item value="../images"/>
 			<item value="shop"/>
 			<item value="nature"/>
@@ -33,8 +41,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="4"/>
-		<item key="DIALOG_Y_ORIGIN" value="759"/>
+		<item key="DIALOG_X_ORIGIN" value="8"/>
+		<item key="DIALOG_Y_ORIGIN" value="573"/>
 		<item key="DIALOG_WIDTH" value="332"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="wrapper row3">
+  <div id="slider" class="clear"> 
+    <!-- ################################################################################################ -->
+    <div class="flexslider basicslider">
+      <ul class="slides">
+        <li><a href="#"><img class="radius-10" src="https://cdn.pixabay.com/photo/2013/07/19/00/18/water-165219_960_720.jpg" style="width:978px;height:400px"></a></li>
+        <li><a href="#"><img class="radius-10" src="images/demo/slides/back2.jpg" style="width:978px;height:400px"></a></li>
+        <li><a href="#"><img class="radius-10" src="images/demo/slides/back3.jpg" style="width:978px;height:400px"></a></li>
+      </ul>
+    </div>
+    <!-- ################################################################################################ --> 
+  </div>
+</div>
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ --> 
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="container clear"> 
+    <!-- main body --> 
+    <!-- ################################################################################################ -->
+    <ul class="nospace group btmspace-80">
+      <li class="one_third first">
+        <article class="service"><i class="icon fa fa-ambulance"></i>
+          <h6 class="heading"><a href="#">서울맛집</a></h6>
+          <p>Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.</p>
+          <footer><a href="#">Read More &raquo;</a></footer>
+        </article>
+      </li>
+      <li class="one_third">
+        <article class="service"><i class="icon fa fa-h-square"></i>
+          <h6 class="heading"><a href="#">제주맛집</a></h6>
+          <p>Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.</p>
+          <footer><a href="#">Read More &raquo;</a></footer>
+        </article>
+      </li>
+      <li class="one_third">
+        <article class="service"><i class="icon fa fa-hospital-o"></i>
+          <h6 class="heading"><a href="#">서울여행</a></h6>
+          <p>Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.</p>
+          <footer><a href="#">Read More &raquo;</a></footer>
+        </article>
+      </li>
+    </ul>
+    <!-- ################################################################################################ -->
+    <h2 class="sectiontitle">제주 인기 호텔</h2>
+    <!-- ################################################################################################ -->
+    <div class="flexslider carousel basiccarousel btmspace-80">
+      <ul class="slides">
+        <li th:each="vo:${list}" th:if="${vo.grade == '5성급'}">
+          <figure><a th:href="@{/jeju/hotel_detail(hno=${vo.hno})}"><img class="radius-10 btmspace-10" th:src="${vo.hotel_image}" style="width: 300px; height: 200px"></a>
+            <figcaption><a th:href="@{/jeju/hotel_detail(hno=${vo.hno})}" th:text="${vo.name}"></a></figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+    <h2 class="sectiontitle">제주 인기 맛집</h2>
+    <!-- ################################################################################################ -->
+    <div class="flexslider carousel basiccarousel btmspace-80">
+      <ul class="slides">
+        <li th:each="vo:${fList}">
+          <figure><a th:href="@{/jeju/food_detail(no=${vo.no})}"><img class="radius-10 btmspace-10" th:src="${vo.poster}" style="width: 300px; height: 200px"></a>
+            <figcaption><a th:href="@{/jeju/food_detail(no=${vo.no})}" th:text="${vo.title}"></a></figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+    <h2 class="sectiontitle">서울 인기 맛집</h2>
+    <!-- ################################################################################################ -->
+    <div class="flexslider carousel basiccarousel btmspace-80">
+      <ul class="slides">
+        <li th:each="vo:${list}" th:if="${vo.grade == '5성급'}">
+          <figure><img class="radius-10 btmspace-10" th:src="${vo.hotel_image}" style="width: 300px; height: 200px">
+            <figcaption><a href="#" th:text="${vo.name}"></a></figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+    
+    
+    <!-- ################################################################################################ -->
+    <h2 class="sectiontitle">최신방문 맛집/여행</h2>
+    <!-- ################################################################################################ -->
+    <ul class="nospace group">
+      <li class="one_half first">
+        <article><img class="imgl radius-10" src="images/demo/100x100.gif" alt="">
+          <h6 class="heading"><a href="#">Lorem Ipsum Dolor</a></h6>
+          <p>Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.</p>
+        </article>
+      </li>
+      <li class="one_half">
+        <article><img class="imgl radius-10" src="images/demo/100x100.gif" alt="">
+          <h6 class="heading"><a href="#">Lorem Ipsum Dolor</a></h6>
+          <p>Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.</p>
+        </article>
+      </li>
+    </ul>
+    <!-- ################################################################################################ --> 
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,26 +1,28 @@
 package com.sist.web;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
-
-import java.util.*;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-
-import com.sist.vo.*;
-import com.sist.dao.*;
+import com.sist.dao.FoodDAO;
+import com.sist.vo.CategoryVO;
+import com.sist.vo.FoodVO;
 @RestController
 public class FoodRestController {
 	@Autowired
 	private FoodDAO dao;
-	
-	
+
+
 	/*
 	 	axios.get("http://localhost:8080/web/food/category_info.do",{
 	 		  ---- GetMapping
@@ -77,7 +79,7 @@ public class FoodRestController {
 		return root.toJSONString();
 	}
 	/////////////////////////////////////////////////////////
-	
+
 	//쿠키/////////////////////////////////////////////////////
 	@GetMapping(value="food/cookie_data_vue.do", produces = "text/plain;charset=utf-8")
 	public String food_cookie_data(HttpServletRequest request) {
@@ -85,17 +87,17 @@ public class FoodRestController {
 		// getName() = key
 		// getValue() = value
 		Cookie[] cookies = request.getCookies();
-		List<FoodVO> list = new ArrayList<FoodVO>();
+		List<FoodVO> list = new ArrayList<>();
 		if(cookies != null) {
 			for(int i=cookies.length-1;i>=0;i--) {
-				if(cookies[i].getName().startsWith("spring_food")) { 
+				if(cookies[i].getName().startsWith("spring_food")) {
 					String fno = cookies[i].getValue();
 					FoodVO vo = dao.foodCookieDetailData(Integer.parseInt(fno));
 					list.add(vo);
 				} // key 값이 "spring_food"이라면 값을 가져와라
 			}
 		}
-		
+
 		// JSON 변환 //////////////////////////////////////
 		JSONArray arr = new JSONArray();
 		int i=0;
@@ -114,7 +116,7 @@ public class FoodRestController {
 		return arr.toJSONString();
 	}
 	///////////////////////////////////////////////////////////
-	
+
 	@GetMapping(value="food/category_info_vue.do", produces = "text/plain;charset=utf-8")
 	public String category_info_vue(int cno) {
 		CategoryVO vo = dao.categoryInfoData(cno);
@@ -123,7 +125,7 @@ public class FoodRestController {
 		obj.put("subject", vo.getSubject());
 		return obj.toJSONString();
 	}
-	
+
 	@GetMapping(value="food/food_list_vue.do", produces = "text/plain;charset=utf-8")
 	public String category_list_vue(int cno) {
 		List<FoodVO> list = dao.foodListData(cno);
@@ -146,14 +148,14 @@ public class FoodRestController {
 		}
 		return arr.toJSONString();
 	}
-	
+
 	@GetMapping(value="food/food_detail_vue.do", produces = "text/plain;charset=utf-8")
 	public String food_detail_vue(int fno) {
 		FoodVO vo = dao.foodDetailData(fno);
 		String address = vo.getAddress();
 		String addr1 = address.substring(0,address.lastIndexOf("지"));
 		String addr2 = address.substring(address.lastIndexOf("지")+3);
-		
+
 		/////////////////////////////////////////// vo => {}(JSONObject)
 		JSONObject obj = new JSONObject();
 		obj.put("fno", vo.getFno());
@@ -172,10 +174,10 @@ public class FoodRestController {
 		obj.put("price", vo.getPrice());
 		obj.put("parking", vo.getParking());
 		obj.put("poster", vo.getPoster());
-		
+
 		return obj.toJSONString();
 	}
-	
+
 	//검색/////////////////////////////////////////////////////////////////////
 	@GetMapping(value="food/food_find_vue.do", produces = "text/plain;charset=utf-8")
 	public String food_find_vue(String page, String address) {
@@ -190,13 +192,13 @@ public class FoodRestController {
 		map.put("address", address);
 		List<FoodVO> list = dao.foodLocationFindData(map);
 		int totalpage = dao.foodFindTotalPage(address);
-		
+
 		final int BLOCK=3;
 		int startPage = ((curpage-1)/BLOCK*BLOCK)+1;
 		int endPage = ((curpage-1)/BLOCK*BLOCK)+BLOCK;
 		if(endPage>totalpage)
 			endPage = totalpage;
-		
+
 		// 데이터 전송 : Json
 		int i=0;
 		JSONArray arr = new JSONArray();
@@ -209,7 +211,7 @@ public class FoodRestController {
 			poster = poster.substring(0,poster.indexOf("^"));
 			poster = poster.replace("#", "&");
 			obj.put("poster", poster);
-			
+
 			if(i == 0) {
 				obj.put("curpage", curpage);
 				obj.put("totalpage", totalpage);
@@ -218,7 +220,7 @@ public class FoodRestController {
 			}
 			arr.add(obj);
 			i++;
-			
+
 		}
 		return arr.toJSONString();
 	}
@@ -229,7 +231,7 @@ public class FoodRestController {
 				"은평구", "서대문구", "동작구", "관악구", "종로구", "중구", "용산구", "서초구", "강북구",
 				"성북구", "도봉구", "동대문구", "성동구", "강남구", "노원구", "중랑구", "광진구", "송파구",
 				"강동구" };
-		
+
 		if(page==null)
 			page="1";
 		int curpage = Integer.parseInt(page);
@@ -239,13 +241,13 @@ public class FoodRestController {
 		map.put("address", guList[gu]);
 		List<FoodVO> list = dao.foodLocationFindData(map);
 		int totalpage = dao.foodFindTotalPage(guList[gu]);
-		
+
 		final int BLOCK=3;
 		int startPage = ((curpage-1)/BLOCK*BLOCK)+1;
 		int endPage = ((curpage-1)/BLOCK*BLOCK)+BLOCK;
 		if(endPage>totalpage)
 			endPage = totalpage;
-		
+
 		// 데이터 전송 : Json
 		int i=0;
 		JSONArray arr = new JSONArray();
@@ -258,7 +260,7 @@ public class FoodRestController {
 			poster = poster.substring(0,poster.indexOf("^"));
 			poster = poster.replace("#", "&");
 			obj.put("poster", poster);
-			
+
 			if(i == 0) {
 				obj.put("curpage", curpage);
 				obj.put("totalpage", totalpage);
@@ -267,7 +269,7 @@ public class FoodRestController {
 			}
 			arr.add(obj);
 			i++;
-			
+
 		}
 		return arr.toJSONString();
 	}

@@ -1,16 +1,26 @@
 package com.sist.openapi;
 
-import java.io.*;
-import java.net.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Component;
 
-import com.mongodb.util.JSONParseException;
 import com.sist.vo.NewsVO;
 
 @Component
@@ -20,14 +30,14 @@ public class NaverNewsManager {
 //		n.newsData("레시피");
 //	}
 	public List<NewsVO> newsListData(String ss){
-		List<NewsVO> list = new ArrayList<NewsVO>();
+		List<NewsVO> list = new ArrayList<>();
 		String json = newsData(ss);
 		try {
 			JSONParser jp = new JSONParser();
 			JSONObject root = (JSONObject)jp.parse(json);
 			JSONArray arr = (JSONArray)root.get("items");
-			for(int i=0;i<arr.size();i++) {
-				JSONObject obj = (JSONObject)arr.get(i);
+			for (Object element : arr) {
+				JSONObject obj = (JSONObject)element;
 				NewsVO vo = new NewsVO();
 				vo.setTitle(obj.get("title").toString());
 				vo.setDescription(obj.get("description").toString());
@@ -38,13 +48,13 @@ public class NaverNewsManager {
 				list.add(vo);
 			}
 		} catch (Exception e) {}
-		
+
 		return list;
 	}
-	
+
 	public String newsData(String ss)
 	{
-		
+
 		String clientId = "c57ZOrbsypObG2wy7P2P"; //애플리케이션 클라이언트 아이디값"
         String clientSecret = "3U_nuIT_Z5"; //애플리케이션 클라이언트 시크릿값"
 

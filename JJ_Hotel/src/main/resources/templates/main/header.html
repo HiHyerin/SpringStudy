@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<th:block>
+	<div class="wrapper row1">
+	  <header id="header" class="clear"> 
+	    <div id="logo" class="fl_left">
+	      <h1><a th:href="@{/}">Jeju</a></h1>
+	    </div>
+	    <div class="fl_right">
+	      <ul class="inline">
+	      </ul>
+	    </div>
+	  </header>
+	</div>
+	<div class="wrapper row2">
+	  <nav id="mainav" class="clear"> 
+	    <ul class="clear">
+	      <li class="active"><a th:href="@{/}">Home</a></li>
+	      
+	      <li><a class="drop" href="#">제주여행</a>
+	        <ul>
+	          <li><a href="/jeju/hotel">제주호텔</a></li>
+	          <li><a href="/jeju/hotel_find">제주호텔 검색</a></li>
+	        </ul>
+	      </li>
+	      
+	      <li><a class="drop" href="#">제주맛집</a>
+	        <ul>
+	          <li><a href="/jeju/food_list">제주맛집</a></li>
+	          <li><a href="pages/gallery.html">제주행사</a></li>
+	        </ul>
+	      </li>
+	      
+	      <li><a class="drop" href="#">서울여행</a>
+	        <ul>
+	          <li><a href="pages/gallery.html">명소</a></li>
+	          <li><a href="pages/gallery.html">자연&관광</a></li>
+	          <li><a href="pages/gallery.html">쇼핑</a></li>
+	        </ul>
+	      </li>
+	      
+	      <li><a class="drop" href="#">서울맛집</a>
+	        <ul>
+	          <li><a th:href="@{/food/food_find}">맛집 검색</a></li>
+	        </ul>
+	      </li>
+	      
+	      <li><a th:href="@{/board/board_list}">커뮤니티</a></li>
+	    </ul>
+	  </nav>
+	</div>
+  </th:block>
+  
+  
+</body>
+</html>

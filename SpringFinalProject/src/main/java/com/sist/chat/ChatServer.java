@@ -1,24 +1,18 @@
 package com.sist.chat;
 
-import java.net.HttpURLConnection;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
-
-import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.servlet.mvc.condition.RequestConditionHolder;
 @ServerEndpoint("/site/chat/chat-ws")
 public class ChatServer {
-  private static List<Session> users=new ArrayList<Session>();
-  // 클라이언트가 접속시에 
+  private static List<Session> users=new ArrayList<>();
+  // 클라이언트가 접속시에
   @OnOpen
   public void onOpen(Session session)
   {
@@ -27,7 +21,7 @@ public class ChatServer {
 	  users.add(session);
 	  System.out.println("클라이언트 접속..."+session.getId());
   }
-  // 클라이언트 퇴장 
+  // 클라이언트 퇴장
   @OnClose
   public void onClose(Session session)
   {

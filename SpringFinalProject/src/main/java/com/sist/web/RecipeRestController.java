@@ -1,18 +1,23 @@
 package com.sist.web;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.*;
-import com.sist.dao.*;
-import com.sist.vo.*;
+
+import com.sist.dao.RecipeService;
+import com.sist.vo.ChefVO;
+import com.sist.vo.RecipeVO;
 @RestController
 public class RecipeRestController {
 	@Autowired
 	private RecipeService service;
-	
+
 	@GetMapping(value="recipe/recipe_list_vue.do", produces = "text/plain;charset=utf-8")
 	public String recipe_list_vue(int page) {
 		Map map = new HashMap<>();
@@ -21,13 +26,13 @@ public class RecipeRestController {
 		List<RecipeVO> list = service.recipeListData(map);
 		int totalpage = service.recipeTotalPage();
 		String count = service.recipeRowCount();
-		
+
 		final int BLOCK = 10;
 		int startPage = ((page-1)/BLOCK*BLOCK)+1;
 		int endPage = ((page-1)/BLOCK*BLOCK)+BLOCK;
 		if(endPage>totalpage)
 			endPage = totalpage;
-		
+
 		int i=0;
 		JSONArray arr = new JSONArray();
 		for(RecipeVO vo:list) {
@@ -45,11 +50,11 @@ public class RecipeRestController {
 			}
 			arr.add(obj);
 			i++;
-		
+
 		}
 		return arr.toJSONString();
 	}
-	
+
 	//chef//////////////////////////////////////////////
 	@GetMapping(value="recipe/chef_list_vue",produces = "texet/plain;charset=utf-8")
 	public String chef_list_vue(int page) {
@@ -58,7 +63,7 @@ public class RecipeRestController {
 		map.put("end", page*50);
 		List<ChefVO> list = service.chefListData(map);
 		int totalpage = service.chefTotalPage();
-		
+
 		int i=0;
 		JSONArray arr = new JSONArray();
 		for(ChefVO vo:list) {
@@ -77,9 +82,9 @@ public class RecipeRestController {
 			i++;
 		}
 		return arr.toJSONString();
-		
+
 	}
-	
+
 	@GetMapping(value="recipe/chef_make_vue.do", produces = "text/plain;charset=utf-8")
 	public String chef_make_vue(String chef) {
 		List<RecipeVO> list = service.chefMakeRecipeData(chef);

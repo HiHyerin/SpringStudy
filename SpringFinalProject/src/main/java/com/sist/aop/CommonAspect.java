@@ -1,8 +1,6 @@
 package com.sist.aop;
-import com.sist.dao.FoodDAO;
-import com.sist.vo.*;
-import java.util.*;
-import com.sist.openapi.*;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -19,9 +17,9 @@ import org.springframework.stereotype.Component;
  		  sql
  		  ...
  		  conn.commit()
- 		  
+
  		  => conn.rollback()
- 		  
+
  	보안 : 인증/인가
  	  => 사용자 정의 : 로그파일 => 빅데이터(데이터 수집, 데이터 전처리...) => 데이터 예측
  	  							데이터 전처리 + 데이터 분석
@@ -30,6 +28,11 @@ import org.springframework.stereotype.Component;
  */
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import com.sist.dao.FoodDAO;
+import com.sist.openapi.NaverNewsManager;
+import com.sist.vo.FoodVO;
+import com.sist.vo.NewsVO;
 @Aspect
 @Component
 public class CommonAspect {
@@ -37,7 +40,7 @@ public class CommonAspect {
 	private FoodDAO dao;
 	@Autowired
 	private NaverNewsManager mgr;
-	
+
 	@Around("execution(* com.sist.web.*Controller.*(..))") // com.sist.web에 있는 모든 Controller에 모든 메소드
 	public Object around(ProceedingJoinPoint jp) throws Throwable{
 		Object obj = null;
@@ -48,7 +51,7 @@ public class CommonAspect {
 		System.out.println("클라이언트 요청 처리 종료");
 		long end = System.currentTimeMillis(); // 끝나는 시간
 		System.out.println("요청 처리에 걸린 시간:"+(end-start));
-		
+
 		return obj;
 	}
 	@After("execution(* com.sist.web.*FController.*(..))") // F를 붙인 이유 - restController과 구분짓기위해
@@ -61,12 +64,12 @@ public class CommonAspect {
 			vo.setAddress(addr[1].trim());
 		}
 		request.setAttribute("tList", tList);
-		
+
 		List<NewsVO> nList = mgr.newsListData("맛집");
 		request.setAttribute("nList", nList);
 	}
-	
+
 	//////////////////////////////////////////////////////////////////
-	
-	
+
+
 }

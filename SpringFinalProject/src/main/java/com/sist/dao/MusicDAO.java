@@ -2,7 +2,6 @@ package com.sist.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,13 +11,13 @@ import com.sist.vo.MusicVO;
 public class MusicDAO {
 	@Autowired
 	private MusicMapper mapper;
-	
+
 //	@Select("select no, title, singer, poster, album "
 //			+ "from music_cjw order by no asc")
 	public List<MusicVO> musicAllData(){
 		return mapper.musicAllData();
 	}
-	
+
 //	@Select("select * from melon_cjw "
 //			+ "where no=#{no}")
 	public MusicVO musicDetailData(int no) {

@@ -20,8 +20,7 @@
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
 
 <!-- JAVASCRIPTS --> 
-<script src="../layout/scripts/jquery.min.js"></script> 
-<script src="../layout/scripts/jquery.backtotop.js"></script> 
+<script src="https://code.jquery.com/jquery.js"></script>
 <script src="../layout/scripts/jquery.mobilemenu.js"></script> 
 <script src="../layout/scripts/jquery.flexslider-min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=474ea1f30b292f1e0644ae92fbff2778&libraries=services"></script>

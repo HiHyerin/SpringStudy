@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+.container{
+	margin-top: 50px;
+	
+}
+.row{
+	margin: 0px auto;
+	width: 900px;
+}
+
+h1{
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+	    <h3>믿고 보는 호텔 리스트 5성급</h3>
+	    <hr>
+	    <div class=row>
+	    	<!-- for(JejuEntity vo:list) -->
+	         <div class="col-md-4" th:each="vo:${list}" th:if="${vo.grade == '5성급'}">
+	          <div class="thumbnail">
+	            <a href="#">
+	             <img th:src="${vo.hotel_image }" style="width:250px;height: 200px">
+	              <div class="caption">
+	                <p class="text-center" th:text="${vo.name}"></p>
+	                <p class="text-center" th:text="${vo.grade}"></p>
+	              </div>
+	            </a>
+	          </div>
+	        </div>
+	    </div>
+	    <h3>믿고 보는 호텔 리스트 4성급</h3>
+	    <hr>
+	    <div class=row>
+	    	<!-- for(JejuEntity vo:list) -->
+	         <div class="col-md-4" th:each="vo:${list}" th:if="${vo.grade == '4성급'}">
+	          <div class="thumbnail">
+	            <a href="#">
+	             <img th:src="${vo.hotel_image }" style="width:250px;height: 200px">
+	              <div class="caption">
+	                <p class="text-center" th:text="${vo.name}"></p>
+	                <p class="text-center" th:text="${vo.grade}"></p>
+	              </div>
+	            </a>
+	          </div>
+	        </div>
+	    </div>
+	    <h3>믿고 보는 호텔 리스트 3성급</h3>
+	    <hr>
+	    <div class=row>
+	    	<!-- for(JejuEntity vo:list) -->
+	         <div class="col-md-4" th:each="vo:${list}" th:if="${vo.grade == '3성급'}">
+	          <div class="thumbnail">
+	            <a href="#">
+	             <img th:src="${vo.hotel_image }" style="width:250px;height: 200px">
+	              <div class="caption">
+	                <p class="text-center" th:text="${vo.name}"></p>
+	                <p class="text-center" th:text="${vo.grade}"></p>
+	              </div>
+	            </a>
+	          </div>
+	        </div>
+	    </div>
+	    <h3>믿고 보는 호텔 리스트 비즈니스</h3>
+	    <hr>
+	    <div class=row>
+	    	<!-- for(JejuEntity vo:list) -->
+	         <div class="col-md-4" th:each="vo:${list}" th:if="${vo.grade == '비즈니스'}">
+	          <div class="thumbnail">
+	            <a href="#">
+	             <img th:src="${vo.hotel_image }" style="width:250px;height: 200px">
+	              <div class="caption">
+	                <p class="text-center" th:text="${vo.name}"></p>
+	                <p class="text-center" th:text="${vo.grade}"></p>
+	              </div>
+	            </a>
+	          </div>
+	        </div>
+	    </div>
+	   
+	</div>
+</body>
+</html>

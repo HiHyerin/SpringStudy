@@ -21,10 +21,10 @@
 	          <header class="heading">총 <span style="color:green;font-size: 35px">{{count}}</span>개의 맛있는 레시피가 있습니다.</header>
 	          <ul class="nospace clear">
 	            <li class="one_quarter first" v-for="(vo,index) in recipe_list" v-if="index%4==0">
-	              <a href="#"><img :src="vo.poster" :title="vo.title"></a>
+	              <a :href="'../recipe/recipe_detail.do?no='+vo.no"><img :src="vo.poster" :title="vo.title"></a>
 	            </li>
 	            <li class="one_quarter" v-else>
-	              <a href="#"><img :src="vo.poster" :title="vo.title"></a>
+	              <a :href="'../recipe/recipe_detail.do?no='+vo.no"><img :src="vo.poster" :title="vo.title"></a>
 	            </li>
 	          </ul>
 	        </figure>

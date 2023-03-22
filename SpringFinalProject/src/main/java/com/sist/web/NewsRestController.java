@@ -1,18 +1,20 @@
 package com.sist.web;
 
+import java.util.List;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.*;
-import com.sist.openapi.*;
-import com.sist.vo.*;
+
+import com.sist.openapi.NaverNewsManager;
+import com.sist.vo.NewsVO;
 @RestController
 public class NewsRestController {
 	@Autowired
 	private NaverNewsManager mgr;
-	
+
 	@GetMapping(value="news/find_vue.do", produces = "text/plain;charset=utf-8")
 	public String find_vue(String ss) {
 		List<NewsVO> list = mgr.newsListData(ss);

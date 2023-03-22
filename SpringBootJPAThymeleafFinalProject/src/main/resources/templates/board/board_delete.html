@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+.row{
+	margin: 0px auto;
+	width: 300px;
+}
+</style>
+</head>
+<body>
+	<div class="wrapper row3 rows">
+	  <main class="container clear">
+	    <div class="row">
+		    <form method="post" action="/board/board_delete_ok"> 
+				<table class="table">
+					<tr>
+						<td class="inline">
+							비밀번호 : <input type=password name=pwd class="input-sm" size=15>
+							<input type=hidden name=no th:value="${no }">
+						</td>
+					</tr>
+					<tr>
+						<td class="text-center">
+							<input type=submit value="삭제" class="btn btn-sm btn-danger">
+							<input type=button value="취소" class="btn btn-sm btn-primary"
+								onclick="javascript:history.back()">
+						</td>
+					</tr>
+				</table>
+			  </form>
+		  </div>
+	  </main>
+	</div>
+
+</body>
+</html>

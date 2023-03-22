@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
+    <entry loc="C:\jdk-17.0.2" stamp="1666571273050"/>
     <entry loc="C:\Program Files\Java\jdk-17.0.2" stamp="1670760642052"/>
-    <entry loc="C:\jdk-14.0.2" stamp="1675816664593"/>
+    <entry loc="C:\jdk-17.0.2\bin" stamp="1666571254955"/>
+    <entry loc="C:\jdk-14.0.2" stamp="1676182396624"/>
 </dirs>

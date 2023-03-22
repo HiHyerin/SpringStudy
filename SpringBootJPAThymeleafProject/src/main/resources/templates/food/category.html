@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+.container{
+	margin-top: 50px;
+	
+}
+.row{
+	margin: 0px auto;
+	width: 900px;
+}
+
+h1{
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+	    <h3>믿고 보는 맛집 리스트</h3>
+	    <hr>
+	    <div class=row>
+	    	<!-- for(CategoryEntity vo:list) -->
+	         <div class="col-md-3" th:each="vo:${list}" th:if="${vo.cno>=1 && vo.cno<=12}">
+	         
+	          <div class="thumbnail">
+	            <a href="#">
+	             <img th:src="${vo.poster }" style="width:100%">
+	              <div class="caption">
+	                <p th:text="${vo.title}"></p>
+	              </div>
+	            </a>
+	          </div>
+	        </div>
+	    </div>
+	    <h3>지역별 맛집 리스트</h3>
+	    <hr>
+	    <div class=row>
+	         <div class="col-md-4" th:each="vo:${list}" th:if="${vo.cno>=13 && vo.cno<=18}">
+	          <div class="thumbnail">
+	            <a href="#">
+	              <img th:src="${vo.poster }" style="width:100%">
+	              <div class="caption">
+	                <p th:text="${vo.title}"></p>
+	              </div>
+	            </a>
+	          </div>
+	        </div>
+	    </div>
+	    <h3>메뉴별 맛집 리스트</h3>
+	    <!-- 
+	    	<img th:src=""> thymeleaf
+	    	<img :src=""> vue js
+	    	<img src={}> react
+	    	<img src="${}"> jsp
+	    	
+	    	<td>{{}}</td> vue js
+	    	<td>{}</td> react
+	    	<td>${}</td>
+	    	<td th:text=""></td> thymeleaf
+	     -->
+	    <hr>
+	    <div class=row>
+	         <div class="col-md-3" th:each="vo:${list}" th:if="${vo.cno>=19 && vo.cno<=30}">
+	          <div class="thumbnail">
+	            <a href="#">
+	              <img th:src="${vo.poster }" style="width:100%">
+	              <div class="caption">
+	                <p th:text="${vo.title}"></p>
+	              </div>
+	            </a>
+	          </div>
+	        </div>
+	    </div>
+	</div>
+</body>
+</html>
