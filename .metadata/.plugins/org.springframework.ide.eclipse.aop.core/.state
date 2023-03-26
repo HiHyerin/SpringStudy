@@ -2,6 +2,7 @@
 <aop-reference-model>
 <aop-project name="JJ_Hotel"/>
 <aop-project name="SpringBootJPAProject"/>
+<aop-project name="SpringBootLastProject"/>
 <aop-project name="SpringIncludeProject1">
 <aspect-definition advice-class-name="com.sist.aop.IncludeAOP" advice-method-name="footerData" advice-type="AFTER" aspect-end-line-number="16" aspect-name="includeAOP" aspect-start-line-number="16" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/SpringIncludeProject1/src/main/webapp/WEB-INF/config/application-context.xml" pointcut-expression="execution(* com.sist.web.*Controller.*(..))" proxy-target-class="false">
 <aop-reference advice-type="AFTER" bean="1:BeansModel|2:SpringIncludeProject1|3:src/main/webapp/WEB-INF/config/application-context.xml|7:beans:11|8:seoulController:11" bean-file="/SpringIncludeProject1/src/main/webapp/WEB-INF/config/application-context.xml" bean-start-line="11" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/SpringIncludeProject1/src/main/webapp/WEB-INF/config/application-context.xml" source="=SpringIncludeProject1/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.sist.aop{IncludeAOP.java[IncludeAOP~footerData" source-start-line="27" target="=SpringIncludeProject1/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.sist.web{SeoulController.java[SeoulController~seoul_location~QString;~QModel;" target-start-line="19"/>

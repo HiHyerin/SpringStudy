@@ -21,7 +21,7 @@ public interface JejuDAO extends JpaRepository<JejuEntity, Integer> {
 	
 	// 검색
 	@Query(value="select * from jj_hotel "
-			+ "where addr like concat('%',:name,'%') order by hno limit :start,20", nativeQuery = true)
+			+ "where name like concat('%',:name,'%') order by hno limit :start,20", nativeQuery = true)
 	public List<JejuEntity> hotelFindData(@Param("name") String addr, @Param("start") Integer start);
 	
 	@Query(value="select ceil(count(*)/20.0) from jj_hotel "

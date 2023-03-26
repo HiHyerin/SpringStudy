@@ -20,8 +20,14 @@
 	          	</form>
 	          </header>
 	          <ul class="nospace clear">
-	            <li th:each="vo,i:${list}" th:class="${i.index%4==0}?'one_quarter first':'one_quarter'"><a th:href="@{/jeju/hotel_detail(hno=${vo.hno})}"><img th:src="${vo.hotel_image}" th:title="${vo.name}" style="width: 250px;height: 200px"></a></li>
-	          </ul>
+				<li th:each="vo,i:${list}"
+					th:class="${i.index%4==0}?'one_quarter first':'one_quarter'">
+					<a th:href="@{/jeju/hotel_detail(hno=${vo.hno})}">
+					<img th:src="${vo.hotel_image}" th:title="${vo.name}"
+						style="width: 250px; height: 200px">
+					<p th:text="${vo.name}" style="text-align: center;"></p>
+						</a></li>
+			</ul>
 	          <figcaption></figcaption>
 	        </figure>
 	      </div>

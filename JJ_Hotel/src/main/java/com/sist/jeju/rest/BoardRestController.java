@@ -16,7 +16,7 @@ public class BoardRestController {
 	private BoardDAO dao;
 	
 	@PostMapping("/board/board_update_ok")
-	public String board_update_ok(BoardEntity vo, Model model) {
+	public String board_update_ok(BoardEntity vo) {
 		BoardEntity dbvo = dao.findByNo(vo.getNo());
 		String res="no";
 		if(dbvo.getPwd().equals(vo.getPwd())) {

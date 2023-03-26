@@ -17,4 +17,14 @@ public interface JejuProductDAO extends JpaRepository<JejuProductEntity, Integer
 	
 	@Query(value="select ceil(count(*)/12.0) from jeju_product", nativeQuery = true)
 	public int jejuProductTotalPage();
+	
+	//검색
+	@Query(value = "select * from jeju_product "
+			+ "where title like concat('%', :title, '%') "
+			+ "limit :start, 12", nativeQuery = true)
+	public List<JejuProductEntity> jejuProductFind(@Param("start") Integer start, @Param("title") String title);
+	
+	@Query(value = "select ceil(count(*)/12.0) from jeju_product "
+			+ "where title like concat('%', :title, '%') ", nativeQuery = true)
+	public int jejuProductFindTotalPage(@Param("title") String title);
 }
